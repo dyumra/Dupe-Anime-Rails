@@ -82,7 +82,7 @@ end)
 local inputBox = Instance.new("TextBox", mainFrame)
 inputBox.Size = UDim2.new(0.7, 0, 0, 35)
 inputBox.Position = UDim2.new(0.1, 0, 0.14, 0)
-inputBox.PlaceholderText = "Enter name"
+inputBox.PlaceholderText = "Enter name (e.g, "
 inputBox.Text = ""
 inputBox.TextScaled = true
 inputBox.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
@@ -138,7 +138,7 @@ hintBtn.MouseEnter:Connect(function()
 end)
 
 hintBtn.MouseLeave:Connect(function()
-	listFrame.Visible = false
+	listFrame.Visible = true
 end)
 
 for _, name in ipairs(dupeNames) do
