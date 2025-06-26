@@ -251,23 +251,27 @@ singleDupeBtn.MouseButton1Click:Connect(function()
         return
     end
     local found = false
-    for _, name in ipairs(dupeNames) do
-        if name:lower() == nameToDupe:lower() then
-            event:FireServer("SetMorphBuy", name, 0)
-            local fakemoney = {"Money"}
-            for _, fmname in ipairs(fakemoney) do
+
+for _, name in ipairs(dupeNames) do
+    if name:lower() == nameToDupe:lower() then
+        event:FireServer("SetMorphBuy", name, 0)
+        local fakemoney = {"Money"}
+        for _, fmname in ipairs(fakemoney) do
             local fm = data:FindFirstChild(fmname)
             if fm then
-            fm.Value = "999999999"
-            notify("✅ Dupe executed: "..name)
-            found = true
-            break
+                fm.Value = "999999999"
+                notify("✅ Dupe executed: " .. name)
+                found = true
+                break
+            end
         end
+        break
     end
-    if not found then
-        notify("❌ Morph not found: "..nameToDupe)
-    end
-end)
+end
+
+if not found then
+    notify("❌ Morph not found: " .. nameToDupe)
+end         
 
 local dupeAllBtn = Instance.new("TextButton", mainFrame)
 dupeAllBtn.Size = UDim2.new(0.9, 0, 0, 35)
