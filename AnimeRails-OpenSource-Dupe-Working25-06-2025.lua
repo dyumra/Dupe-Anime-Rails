@@ -84,8 +84,8 @@ gui.Parent = guiReady
 local mainFrame = Instance.new("Frame")
 mainFrame.Size = UDim2.new(0, 380, 0, 520)
 mainFrame.Position = UDim2.new(0.5, -190, 0.5, -260)
-mainFrame.BackgroundColor3 = Color3.fromRGB(10, 10, 10) -- ดำมนเข้ม
-mainFrame.BorderSizePixel = 0 -- ปิดขอบปกติไว้ก่อน
+mainFrame.BackgroundColor3 = Color3.fromRGB(10, 10, 10)
+mainFrame.BorderSizePixel = 0
 mainFrame.BackgroundTransparency = 0.2
 mainFrame.Parent = gui
 mainFrame.Active = true
@@ -149,7 +149,7 @@ Instance.new("UICorner", singleDupeBtn).CornerRadius = UDim.new(0, 10)
 
 local searchBox = Instance.new("TextBox", mainFrame)
 searchBox.Size = UDim2.new(0.9, 0, 0, 30)
-searchBox.Position = UDim2.new(0.05, 0, 0.18, 0) -- ขยับลงมาให้ไม่ทับ listFrame
+searchBox.Position = UDim2.new(0.05, 0, 0.18, 0)
 searchBox.PlaceholderText = "Search"
 searchBox.Text = ""
 searchBox.ClearTextOnFocus = false
@@ -161,7 +161,7 @@ Instance.new("UICorner", searchBox).CornerRadius = UDim.new(0, 10)
 
 local listFrame = Instance.new("Frame", mainFrame)
 listFrame.Size = UDim2.new(0.9, 0, 0.32, 0)
-listFrame.Position = UDim2.new(0.05, 0, 0.255, 0) -- ปรับให้ต่ำกว่า searchBox
+listFrame.Position = UDim2.new(0.05, 0, 0.255, 0)
 listFrame.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
 Instance.new("UICorner", listFrame).CornerRadius = UDim.new(0, 8)
 
