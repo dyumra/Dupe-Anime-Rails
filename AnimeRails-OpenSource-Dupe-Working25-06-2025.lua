@@ -27,8 +27,11 @@ local function notify(text)
 	end)
 	print("Notify:", text)
 end
-
-notify("🛡️ DYHUB'S TEAM\nJoin our (.gg/DYHUBGG)")
+notify("🛡️ DYHUB'S TEAM\n🎮 Game: [ARISE] Anime Rails [Alpha]")
+wait(0.5)
+notify("🛡️ DYHUB'S TEAM\n🎁 Join our (.gg/DYHUBGG)")
+wait(1)
+notify("🛡️ DYHUB'S TEAM\n📊 Version: v672 (Fix Bug)")
 
 local guiReady = player:WaitForChild("PlayerGui", 10)
 if not guiReady then
