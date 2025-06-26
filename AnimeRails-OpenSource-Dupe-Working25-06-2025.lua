@@ -254,6 +254,11 @@ singleDupeBtn.MouseButton1Click:Connect(function()
     for _, name in ipairs(dupeNames) do
         if name:lower() == nameToDupe:lower() then
             event:FireServer("SetMorphBuy", name, 0)
+            local fakemoney = {"Money"}
+            for _, fmname in ipairs(fakemoney) do
+            local fm = data:FindFirstChild(fmname)
+            if fm then
+            fm.Value = "999999999"
             notify("✅ Dupe executed: "..name)
             found = true
             break
