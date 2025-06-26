@@ -28,7 +28,7 @@ local function notify(text)
 	print("Notify:", text)
 end
 
-notify("🛡️ DYHUB'S TEAM\nJoin us (.gg/DYHUBGG)")
+notify("🛡️ DYHUB'S TEAM\nJoin our (.gg/DYHUBGG)")
 
 local guiReady = player:WaitForChild("PlayerGui", 10)
 if not guiReady then
@@ -128,7 +128,7 @@ local dupeNames = {
 	"CriticalHit", "Gear4", "BlackFlash", "Toji", "InfinityEyes", "MasteredReflex", "LavaMasterClass",
 	"RedeemedWolfBoss", "RedeemedKnight", "LuffyMorph", "DoughMorph", "GravityAura", "DoughAura",
 	"LavaAura", "Gear5Class", "MochiClass", "Rinnegan", "Kurama", "Sasuke", "Pain", "EightGates", "Sed",
-	"Cid", "Gojo", "Assasin", "AntKing", "BlueFames", "BloodKnight", "BloodMorph", "BloodMorphS",
+	"Cid", "Gojo", "Assasin", "AntKing", "BlueFlames", "BloodKnight", "BloodMorph", "BloodMorphS",
 	"AntMorph", "AntMorphS", "AssasinMorph"
 }
 
@@ -204,11 +204,11 @@ end)
 local gamepassBtn = Instance.new("TextButton", mainFrame)
 gamepassBtn.Size = UDim2.new(0.8, 0, 0, 30)
 gamepassBtn.Position = UDim2.new(0.1, 0, 0.88, 0)
-gamepassBtn.Text = "Unlock Gamepass (BETA)"
+gamepassBtn.Text = "Unlock Gamepass (Press Everytime)"
 gamepassBtn.TextScaled = true
 gamepassBtn.Font = Enum.Font.Gotham
 gamepassBtn.TextColor3 = Color3.new(1, 1, 1)
-gamepassBtn.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
+gamepassBtn.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
 Instance.new("UICorner", gamepassBtn).CornerRadius = UDim.new(0, 10)
 
 gamepassBtn.MouseButton1Click:Connect(function()
@@ -216,9 +216,18 @@ gamepassBtn.MouseButton1Click:Connect(function()
 	if data then
 		local gp1 = data:FindFirstChild("DoubleCash")
 		local gp2 = data:FindFirstChild("AlrBoughtSkipSpin")
+		local gp3 = data:FindFirstChild("SecClass")
+		local gp4 = data:FindFirstChild("Emote")
 		if gp1 then gp1.Value = true end
 		if gp2 then gp2.Value = true end
+		if gp3 then gp3.Value = true end
+		if gp4 then gp4.Value = true end
 		notify("✅ Gamepasses unlocked!")
+		wait(0.5)
+		notify("🔓 SkipSpin unlocked!")
+		notify("🔓 DoubleCash unlocked!")
+		notify("🔓 2-Class Slots unlocked!")
+		notify("🔓 Emote unlocked!")
 	else
 		notify("❌ Data folder not found")
 	end
