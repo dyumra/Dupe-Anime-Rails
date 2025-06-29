@@ -70,7 +70,7 @@ local bypassSteps = {
     "Success!"
 }
 local stepCount = #bypassSteps
-local delayPerStep = 10 / (stepCount - 1) -- 10 วินาทีแบ่งเท่าๆสำหรับขั้นตอนก่อน success
+local delayPerStep = 10 / (stepCount - 1)
 
 spawn(function()
     for i, step in ipairs(bypassSteps) do
@@ -194,5 +194,5 @@ enterButton2.MouseButton1Click:Connect(function()
         wait(0.1)
     end
     
-    notify("✅ Dupe Cash: Completed 999,999,999!")
+    notify("✅ Dupe Cash: Completed 999 million!")
 end)
