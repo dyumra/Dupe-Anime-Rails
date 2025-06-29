@@ -107,6 +107,18 @@ local function createKeyGui()
     title.ZIndex = 1002
     title.Text = "Access Key Required"
 
+    local subtitle = Instance.new("TextLabel")
+    subtitle.Parent = frame
+    subtitle.Size = UDim2.new(1, -40, 0, 30)
+    subtitle.Position = UDim2.new(0, 20, 0, 50)
+    subtitle.BackgroundTransparency = 1
+    subtitle.Text = "Enter your access key below to continue"
+    subtitle.TextColor3 = Color3.fromRGB(180, 180, 180)
+    subtitle.Font = Enum.Font.Gotham
+    subtitle.TextSize = 16
+    subtitle.TextXAlignment = Enum.TextXAlignment.Center
+    subtitle.ZIndex = 1002
+
     local keyBox = Instance.new("TextBox")
     keyBox.Parent = frame
     keyBox.Size = UDim2.new(1, -40, 0, 40)
