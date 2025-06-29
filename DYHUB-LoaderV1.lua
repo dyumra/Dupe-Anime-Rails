@@ -23,7 +23,7 @@ local function notify(text)
     print("Notify:", text)
 end
 
-notify("DYHUB'S TEAM | Join our (.gg/DYHUBGG)")
+notify("🛡️ DYHUB'S TEAM | Join our (.gg/DYHUBGG)")
 
 local placeId = tostring(game.PlaceId)
 local gameName = allowedGames[placeId]
@@ -35,7 +35,7 @@ if not gameName then
         Duration = 5
     })
     wait(2)
-    player:Kick("!! This script is not supported in this game.\n !! Please run the script in a game that we support.\nJoin our (.gg/DYHUBGG)")
+    player:Kick("⚠️ This script is not supported in this game.\n 📊 Please run the script in a game that we support.\n🔗 Join our (.gg/DYHUBGG)")
     return
 end
 
@@ -149,7 +149,7 @@ local function createKeyGui()
         clickTween(submitBtn)
         local enteredKey = keyBox.Text:lower():gsub("%s+", "")
         if enteredKey == VALID_KEY:lower() or enteredKey == "dev" then
-            notify("Key Correct! | Loading Script...")
+            notify("✅ Key Correct! | Loading Script...")
             keyGui:Destroy()
             blur.Size = 0
 
@@ -218,13 +218,13 @@ local function createKeyGui()
                 Instance.new("UICorner", btnDupeCash).CornerRadius = UDim.new(0, 15)
 
                 btnDupeMCA.MouseButton1Click:Connect(function()
-                    notify("Loading Dupe MCA Script...")
+                    notify("⚙️ Loading Dupe MCA Script...")
                     selectGui:Destroy()
                     loadstring(game:HttpGet("https://pastebin.com/raw/tWLaQUPc"))()
                 end)
 
                 btnDupeCash.MouseButton1Click:Connect(function()
-                    notify("Loading Dupe Cash Script...")
+                    notify("⚙️ Loading Dupe Cash Script...")
                     selectGui:Destroy()
                     loadstring(game:HttpGet("https://pastebin.com/raw/Cm328YQH"))()
                 end)
@@ -240,13 +240,13 @@ local function createKeyGui()
 
                 if scriptURL then
                     loadstring(game:HttpGet(scriptURL))()
-                    notify("Game: " .. gameName .. " | Game has finished loading...")
+                    notify("🎮 Game: " .. gameName .. " | Game has finished loading...")
                 else
-                    notify("No script available for this game!")
+                    notify("‼️ No script available for this game!")
                 end
             end
         else
-            notify("Key Incorrect! Please try again.")
+            notify("✅ Key Incorrect! Please try again.")
             local flashGoal = {BackgroundColor3 = Color3.fromRGB(255, 70, 70)}
             local normalGoal = {BackgroundColor3 = Color3.fromRGB(70, 70, 70)}
             local flashTween = TweenService:Create(keyBox, TweenInfo.new(0.15), flashGoal)
@@ -260,9 +260,9 @@ local function createKeyGui()
     getKeyBtn.MouseButton1Click:Connect(function()
         clickTween(getKeyBtn)
         pcall(function()
-            setclipboard("https://pastebin.com/raw/iiQREtkr")
+            setclipboard("https://github.com/dyumra/DYHUB-Universal")
         end)
-        notify("Link copied to clipboard!")
+        notify("🔗 Link copied to clipboard!")
     end)
 
     return keyGui
