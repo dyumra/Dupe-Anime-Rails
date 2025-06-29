@@ -233,9 +233,9 @@ local function createKeyGui()
                 if gameName:find("No%-Scope Arcade") then
                     scriptURL = 'https://pastebin.com/raw/0xcSxSW4'
                 elseif gameName == "No-Scope Arcade" then
-                    scriptURL = 'https://pastebin.com/raw/NeCbQB58'
+                    scriptURL = 'https://pastebin.com/raw/0xcSxSW4'
                 elseif gameName == "Arsenal" then
-                    scriptURL = 'https://pastebin.com/raw/tWLaQUPc'
+                    scriptURL = 'https://pastebin.com/raw/NeCbQB58'
                 end
 
                 if scriptURL then
