@@ -1,7 +1,6 @@
 local player = game:GetService("Players").LocalPlayer
 local StarterGui = game:GetService("StarterGui")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local TweenService = game:GetService("TweenService")
 local RunService = game:GetService("RunService")
 
 local function notify(text)
@@ -18,7 +17,7 @@ end
 notify("🛡️ DYHUB'S TEAM\nJoin our (.gg/DYHUBGG)")
 
 local gui = Instance.new("ScreenGui")
-gui.Name = "DupeDYHUBGui"
+gui.Name = "Dupe-DYHUB | Inf-Cash | Anime Rails"
 gui.ResetOnSpawn = false
 gui.Enabled = false
 gui.Parent = player:WaitForChild("PlayerGui")
@@ -66,7 +65,7 @@ end)
 local inputBox = Instance.new("TextBox", mainFrame)
 inputBox.Size = UDim2.new(0.8, 0, 0, 40)
 inputBox.Position = UDim2.new(0.1, 0, 0, 60)
-inputBox.PlaceholderText = "Enter amount (10,000 ~ 500,000)"
+inputBox.PlaceholderText = "Enter amount (100 ~ 10,000)"
 inputBox.Text = ""
 inputBox.Font = Enum.Font.Gotham
 inputBox.TextScaled = true
@@ -94,9 +93,30 @@ enterButton2.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
 enterButton2.TextColor3 = Color3.fromRGB(255, 255, 255)
 Instance.new("UICorner", enterButton2).CornerRadius = UDim.new(0, 10)
 
+local function getRedShade(tick)
+    local frequency = 2
+    local red = math.floor(math.sin(frequency * tick) * 127 + 128)
+    return Color3.fromRGB(red, 0, 0)
+end
+
+RunService.RenderStepped:Connect(function()
+    local color = getRedShade(tick())
+    enterButton2.BackgroundColor3 = color
+end)
+
+local warnLabel = Instance.new("TextLabel", mainFrame)
+warnLabel.Size = UDim2.new(0.5, 0, 0, 40)
+warnLabel.Position = UDim2.new(0.25, 0, 0, 225)
+warnLabel.Text = "⚠️ Be careful, if you cast too much money, the game may reset you.\nPlease cast 100 ~ 10,000 at a time for safety."
+warnLabel.Font = Enum.Font.GothamBold
+warnLabel.TextScaled = true
+warnLabel.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+warnLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+Instance.new("UICorner", warnLabel).CornerRadius = UDim.new(0, 10)
+
 enterButton.MouseButton1Click:Connect(function()
     local input = tonumber(inputBox.Text)
-    if input and input >= 100 and input <= 500000 then
+    if input and input >= 100 and input <= 10000 then
         local args = {
             [1] = "Wins",
             [2] = input,
@@ -105,7 +125,7 @@ enterButton.MouseButton1Click:Connect(function()
         ReplicatedStorage:WaitForChild("redeemedCode"):FireServer(unpack(args))
         notify("✅ Dupe Cash: "..input)
     else
-        notify("❌ Invalid amount! Please enter 100 ~ 500,000.")
+        notify("❌ Invalid amount! Please enter 100 ~ 10,000.")
     end
 end)
 
@@ -193,4 +213,3 @@ spawn(function()
     key1InputGui.Enabled = false
     gui.Enabled = true
 end)
-
