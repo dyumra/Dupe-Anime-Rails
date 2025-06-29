@@ -17,74 +17,6 @@ end
 
 notify("🛡️ DYHUB'S TEAM\nJoin our (.gg/DYHUBGG)")
 
-local key1InputGui = Instance.new("ScreenGui")
-key1InputGui.Name = "LoadingMenu"
-key1InputGui.ResetOnSpawn = false
-key1InputGui.Parent = player:WaitForChild("PlayerGui")
-
-local key1Frame = Instance.new("Frame")
-key1Frame.Parent = key1InputGui
-key1Frame.Size = UDim2.new(0, 320, 0, 180)
-key1Frame.Position = UDim2.new(0.5, -160, 0.5, -90)
-key1Frame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
-key1Frame.BackgroundTransparency = 0.2
-key1Frame.BorderSizePixel = 0
-key1Frame.ClipsDescendants = true
-key1Frame.Visible = true
-
-Instance.new("UICorner", key1Frame).CornerRadius = UDim.new(0, 15)
-Instance.new("UIStroke", key1Frame).Thickness = 2
-
-local key1Title = Instance.new("TextLabel", key1Frame)
-key1Title.Size = UDim2.new(1, 0, 0, 50)
-key1Title.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
-key1Title.TextColor3 = Color3.fromRGB(255, 255, 255)
-key1Title.BackgroundTransparency = 0.5
-key1Title.Font = Enum.Font.GothamBold
-key1Title.TextSize = 22
-key1Title.Text = "🛡 DYHUB'S\n Join our (.gg/DYHUBGG)"
-Instance.new("UICorner", key1Title).CornerRadius = UDim.new(0, 15)
-
-local spinner = Instance.new("ImageLabel", key1Frame)
-spinner.Size = UDim2.new(0, 60, 0, 60)
-spinner.Position = UDim2.new(0.5, 0, 0.5, 10)
-spinner.AnchorPoint = Vector2.new(0.5, 0.5)
-spinner.BackgroundTransparency = 1
-spinner.Image = "rbxassetid://82285050019288"
-spinner.ImageColor3 = Color3.fromRGB(255, 255, 255)
-
-spawn(function()
-    while spinner and spinner.Parent do
-        spinner.Rotation = spinner.Rotation + 3
-        RunService.RenderStepped:Wait()
-    end
-end)
-
-local bypassSteps = {
-    "Initializing bypass protocol...",
-    "Verifying server connection...",
-    "Establishing secure channel...",
-    "Bypassing client restrictions...",
-    "Bypassing anti-cheat system...",
-    "Finalizing bypass process...",
-    "Success!"
-}
-local stepCount = #bypassSteps
-local delayPerStep = 10 / (stepCount - 1)
-
-spawn(function()
-    for i, step in ipairs(bypassSteps) do
-        key1Title.Text = "🛡 DYHUB'S\n"..step
-        if step == "Success!" then
-            wait(1.5)
-        else
-            wait(delayPerStep)
-        end
-    end
-    key1InputGui.Enabled = false
-    gui.Enabled = true
-end)
-
 local gui = Instance.new("ScreenGui")
 gui.Name = "DupeDYHUBGui"
 gui.ResetOnSpawn = false
@@ -164,7 +96,7 @@ Instance.new("UICorner", enterButton2).CornerRadius = UDim.new(0, 10)
 
 enterButton.MouseButton1Click:Connect(function()
     local input = tonumber(inputBox.Text)
-    if input and input >= 10000 and input <= 500000 then
+    if input and input >= 100 and input <= 500000 then
         local args = {
             [1] = "Wins",
             [2] = input,
@@ -173,7 +105,7 @@ enterButton.MouseButton1Click:Connect(function()
         ReplicatedStorage:WaitForChild("redeemedCode"):FireServer(unpack(args))
         notify("✅ Dupe Cash: "..input)
     else
-        notify("❌ Invalid amount! Please enter 10,000 ~ 500,000.")
+        notify("❌ Invalid amount! Please enter 100 ~ 500,000.")
     end
 end)
 
@@ -181,9 +113,7 @@ enterButton2.MouseButton1Click:Connect(function()
     local totalAmount = 999000000
     local perFire = 999999
     local times = math.floor(totalAmount / perFire)
-    
     notify("⏳ Starting infinite money dupe loop...")
-    
     for i = 1, times do
         local args = {
             [1] = "Wins",
@@ -193,6 +123,74 @@ enterButton2.MouseButton1Click:Connect(function()
         ReplicatedStorage:WaitForChild("redeemedCode"):FireServer(unpack(args))
         wait(0.1)
     end
-    
-    notify("✅ Dupe Cash: Completed 999 million!")
+    notify("✅ Dupe Cash: Completed 999,999,999!")
 end)
+
+local key1InputGui = Instance.new("ScreenGui")
+key1InputGui.Name = "LoadingMenu"
+key1InputGui.ResetOnSpawn = false
+key1InputGui.Parent = player:WaitForChild("PlayerGui")
+
+local key1Frame = Instance.new("Frame")
+key1Frame.Parent = key1InputGui
+key1Frame.Size = UDim2.new(0, 320, 0, 180)
+key1Frame.Position = UDim2.new(0.5, -160, 0.5, -90)
+key1Frame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+key1Frame.BackgroundTransparency = 0.2
+key1Frame.BorderSizePixel = 0
+key1Frame.ClipsDescendants = true
+key1Frame.Visible = true
+
+Instance.new("UICorner", key1Frame).CornerRadius = UDim.new(0, 15)
+Instance.new("UIStroke", key1Frame).Thickness = 2
+
+local key1Title = Instance.new("TextLabel", key1Frame)
+key1Title.Size = UDim2.new(1, 0, 0, 50)
+key1Title.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+key1Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+key1Title.BackgroundTransparency = 0.5
+key1Title.Font = Enum.Font.GothamBold
+key1Title.TextSize = 22
+key1Title.Text = "🛡 DYHUB'S\n Join our (.gg/DYHUBGG)"
+Instance.new("UICorner", key1Title).CornerRadius = UDim.new(0, 15)
+
+local spinner = Instance.new("ImageLabel", key1Frame)
+spinner.Size = UDim2.new(0, 60, 0, 60)
+spinner.Position = UDim2.new(0.5, 0, 0.5, 10)
+spinner.AnchorPoint = Vector2.new(0.5, 0.5)
+spinner.BackgroundTransparency = 1
+spinner.Image = "rbxassetid://82285050019288"
+spinner.ImageColor3 = Color3.fromRGB(255, 255, 255)
+
+spawn(function()
+    while spinner and spinner.Parent do
+        spinner.Rotation = spinner.Rotation + 3
+        RunService.RenderStepped:Wait()
+    end
+end)
+
+local bypassSteps = {
+    "Initializing bypass protocol...",
+    "Verifying server connection...",
+    "Establishing secure channel...",
+    "Bypassing client restrictions...",
+    "Bypassing anti-cheat system...",
+    "Finalizing bypass process...",
+    "Success!"
+}
+local stepCount = #bypassSteps
+local delayPerStep = 10 / (stepCount - 1)
+
+spawn(function()
+    for i, step in ipairs(bypassSteps) do
+        key1Title.Text = "🛡 DYHUB'S\n"..step
+        if step == "Success!" then
+            wait(1.5)
+        else
+            wait(delayPerStep)
+        end
+    end
+    key1InputGui.Enabled = false
+    gui.Enabled = true
+end)
+
