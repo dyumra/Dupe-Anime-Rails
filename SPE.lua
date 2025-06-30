@@ -29,7 +29,7 @@ screenGui.Parent = playerGui
 
 local mainFrame = Instance.new("Frame")
 mainFrame.Size = UDim2.new(0, 300, 0, 150)
-mainFrame.Position = UDim2.new(0.5, -190, 0.5, -75)
+mainFrame.Position = UDim2.new(0.5, 0.5)
 mainFrame.BackgroundColor3 = Color3.fromRGB(10, 10, 10)
 mainFrame.BackgroundTransparency = 0.2
 mainFrame.BorderSizePixel = 0
@@ -90,7 +90,7 @@ end)
 
 local textla = Instance.new("TextLabel", mainFrame)
 textla.Size = UDim2.new(1, -20, 0, 40)
-textla.Position = UDim2.new(0, 10, 0, 110)
+textla.Position = UDim2.new(0, 10, 0, 105)
 textla.Text = "⚠️ If an error occurs, please reset your character."
 textla.Font = Enum.Font.GothamBold
 textla.TextScaled = true
