@@ -1,8 +1,9 @@
 local allowedGames = {
     ["286090429"] = "Arsenal",
-    ["14940775218"] = "No-Scope Arcade (2021)",
-    ["6407649031"] = "No-Scope Arcade",
-    ["86628581581863"] = "Anime Rails",
+    ["14940775218"] = "[FPS] No-Scope Arcade (2021)",
+    ["6407649031"] = "[UPDATE] No-Scope Arcade",
+    ["86628581581863"] = "[BACK] Anime Rails [Alpha]",
+    ["73934517857372"] = "[UPD 🦑] +1 Speed Prison Escape⚡",
 }
 
 local player = game:GetService("Players").LocalPlayer
@@ -263,6 +264,8 @@ function loadScript()
             scriptURL = 'https://pastebin.com/raw/0xcSxSW4'
         elseif gameName == "Arsenal" then
             scriptURL = 'https://pastebin.com/raw/NeCbQB58'
+        elseif gameName == "+1 Speed Prison Escape" then
+            scriptURL = 'https://pastebin.com/raw/KTCsyQSk'
         end
         if scriptURL then
             loadstring(game:HttpGet(scriptURL))()
