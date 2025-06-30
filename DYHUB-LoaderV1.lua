@@ -258,7 +258,7 @@ local function createKeyGui()
                 end
             end
         else
-            notify("✅ Key Incorrect! Please try again.")
+            notify("❌ Key Incorrect! Please try again.")
             local flashGoal = {BackgroundColor3 = Color3.fromRGB(255, 70, 70)}
             local normalGoal = {BackgroundColor3 = Color3.fromRGB(70, 70, 70)}
             local flashTween = TweenService:Create(keyBox, TweenInfo.new(0.15), flashGoal)
