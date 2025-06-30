@@ -228,7 +228,7 @@ function loadScript()
         s.MouseButton1Click:Connect(function()
             notify("Loading Squid Island...")
             g:Destroy()
-            loadstring(game:HttpGet("https://pastebin.com/raw/OpusIhsj"))()
+            loadstring(game:HttpGet("https://pastebin.com/raw/RKPm9zJB"))()
         end)
     else
         local url
