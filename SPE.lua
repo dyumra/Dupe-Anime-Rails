@@ -1,6 +1,6 @@
 --[[
 
-    +1 Speed Prison Escape
+    +1 Speed Prison Escape
 
 --]]
 
@@ -11,13 +11,13 @@ local player = Players.LocalPlayer
 local playerGui = player:WaitForChild("PlayerGui")
 
 local function notify(text)
-    pcall(function()
-        StarterGui:SetCore("SendNotification", {
-            Title = "🛡️ DYHUB",
-            Text = text,
-            Duration = 3
-        })
-    end)
+    pcall(function()
+        StarterGui:SetCore("SendNotification", {
+            Title = "🛡️ DYHUB",
+            Text = text,
+            Duration = 3
+        })
+    end)
 end
 
 notify("DYHUB Loaded!")
@@ -45,11 +45,11 @@ borderStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
 borderStroke.Thickness = 3
 
 local function getRainbowColor(tick)
-    local frequency = 2
-    local red = math.floor(math.sin(frequency * tick + 0) * 127 + 128)
-    local green = math.floor(math.sin(frequency * tick + 2) * 127 + 128)
-    local blue = math.floor(math.sin(frequency * tick + 4) * 127 + 128)
-    return Color3.fromRGB(red, green, blue)
+    local frequency = 2
+    local red = math.floor(math.sin(frequency * tick + 0) * 127 + 128)
+    local green = math.floor(math.sin(frequency * tick + 2) * 127 + 128)
+    local blue = math.floor(math.sin(frequency * tick + 4) * 127 + 128)
+    return Color3.fromRGB(red, green, blue)
 end
 
 local title = Instance.new("TextLabel", mainFrame)
@@ -62,9 +62,9 @@ title.Font = Enum.Font.GothamBold
 title.TextScaled = true
 
 RunService.RenderStepped:Connect(function()
-    local color = getRainbowColor(tick())
-    borderStroke.Color = color
-    title.TextColor3 = color
+    local color = getRainbowColor(tick())
+    borderStroke.Color = color
+    title.TextColor3 = color
 end)
 
 local teleportButton = Instance.new("TextButton", mainFrame)
@@ -77,47 +77,49 @@ teleportButton.TextColor3 = Color3.fromRGB(255, 255, 255)
 Instance.new("UICorner", teleportButton).CornerRadius = UDim.new(0, 10)
 
 local function getBlackRedColor(t)
-    local freq = 2
-    local red = math.floor((math.sin(freq * t) * 0.5 + 0.5) * 255)
-    local green = 0
-    local blue = 0
-    return Color3.fromRGB(red, green, blue)
+    local freq = 2
+    local red = math.floor((math.sin(freq * t) * 0.5 + 0.5) * 255)
+    local green = 0
+    local blue = 0
+    return Color3.fromRGB(red, green, blue)
 end
 
 RunService.RenderStepped:Connect(function()
-    teleportButton.BackgroundColor3 = getBlackRedColor(tick())
+    teleportButton.BackgroundColor3 = getBlackRedColor(tick())
 end)
 
+local textla = Instance.new("TextLabel", mainFrame)
+textla.Size = UDim2.new(1, -20, 0, 40)
+textla.Position = UDim2.new(0, 10, 0, 110)
+textla.Text = "⚠️ If an error occurs, please reset your character."
+textla.Font = Enum.Font.GothamBold
+textla.TextScaled = true
+textla.TextColor3 = Color3.fromRGB(255, 255, 255)
+textla.BackgroundTransparency = 1
+textla.TextWrapped = true
+
 local targetCFrame = CFrame.new(
-    -33.5574493, 19.9643955, 3799.16064,
-    -0.99989593, -0.00131964777, -0.0143670198,
-    -9.06696158e-08, 0.995808661, -0.0914612785,
-    0.0144274998, -0.0914517567, -0.995705009
+    -33.5574493, 19.9643955, 3799.16064,
+    -0.99989593, -0.00131964777, -0.0143670198,
+    -9.06696158e-08, 0.995808661, -0.0914612785,
+    0.0144274998, -0.0914517567, -0.995705009
 )
 
 local looping = false
 
 teleportButton.MouseButton1Click:Connect(function()
-    looping = not looping
-    teleportButton.Text = looping and "Auto Farm: On" or "Auto Farm: Off"
-    notify("Auto Farm: " .. (looping and "Enabled" or "Disabled"))
+    looping = not looping
+    teleportButton.Text = looping and "Auto Farm: On" or "Auto Farm: Off"
+    notify("Auto Farm: " .. (looping and "Enabled" or "Disabled"))
 
-    if looping then
-        task.spawn(function()
-            while looping do
-                local character = player.Character or player.CharacterAdded:Wait()
-                local root = character:WaitForChild("HumanoidRootPart")
-                root.CFrame = targetCFrame
-
-                wait(0.5)
-                local humanoid = character:FindFirstChildOfClass("Humanoid")
-                if humanoid then
-                    humanoid:ChangeState(Enum.HumanoidStateType.Dead)
-                    humanoid.Health = 0
-                end
-
-                wait(0.5)
-            end
-        end)
-    end
+    if looping then
+        task.spawn(function()
+            while looping do
+                local character = player.Character or player.CharacterAdded:Wait()
+                local root = character:WaitForChild("HumanoidRootPart")
+                root.CFrame = targetCFrame
+                wait(0.25)
+            end
+        end)
+    end
 end)
