@@ -208,7 +208,7 @@ spawn(function()
             if not player:IsInGroup(groupId) then
                 key1Title.Text = "🛡 DYHUB'S\nGroup verification failed"
                 wait(1.5)
-                key1Title.Text = "🛡 DYHUB'S\nAccess denied: Not a group member"
+                key1Title.Text = "🛡 DYHUB'S\nAccess denied: ❌"
                 wait(1.5)
                 player:Kick("⚠️ Access denied. Please join our group to use this feature.\n📌 Group: https://www.roblox.com/communities/5096106/Ghost-Light-Games")
                 return
