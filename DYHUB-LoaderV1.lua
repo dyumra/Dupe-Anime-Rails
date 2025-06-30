@@ -280,9 +280,10 @@ function loadScript()
 end
 
 if player.Name == "Yolmar_43" then
-    notify("🛡️ Owner! No key required | Loading Script...")
+    notify("🛡️ Owner! No key required | @DYHUB")
     blur:Destroy()
     loadScript()
+    notify("🔑 Access Key! @dyumraisgoodguy | Lifetime (47532 Weeks)")
 else
     local keyGui = player.PlayerGui:FindFirstChild("DYHUB_KeyGui") or createKeyGui()
     player.CharacterAdded:Connect(function()
