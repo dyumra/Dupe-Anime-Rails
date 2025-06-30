@@ -1,5 +1,3 @@
-
-
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
 local StarterGui = game:GetService("StarterGui")
@@ -19,7 +17,7 @@ end
 notify("DYHUB Loaded!")
 
 local screenGui = Instance.new("ScreenGui")
-screenGui.Name = "DYHUB_AutoFarm"
+screenGui.Name = "DYHUB | Auto Farm | @Normal-Mode"
 screenGui.ResetOnSpawn = false
 screenGui.Parent = playerGui
 
@@ -51,7 +49,7 @@ end
 local title = Instance.new("TextLabel", mainFrame)
 title.Size = UDim2.new(1, 0, 0, 40)
 title.Position = UDim2.new(0, 0, 0, 0)
-title.Text = "SPE | DYHUB"
+title.Text = "SPE:N | DYHUB"
 title.TextColor3 = Color3.new(1, 1, 1)
 title.BackgroundTransparency = 1
 title.Font = Enum.Font.GothamBold
