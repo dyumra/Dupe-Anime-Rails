@@ -9,7 +9,6 @@ local player = game:GetService("Players").LocalPlayer
 local StarterGui = game:GetService("StarterGui")
 local RunService = game:GetService("RunService")
 local TweenService = game:GetService("TweenService")
-
 local VALID_KEY = "DYHUBTHEBEST"
 
 local function notify(text)
@@ -60,7 +59,6 @@ local function createKeyGui()
     keyGui.ResetOnSpawn = false
     keyGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
     keyGui.Parent = player:WaitForChild("PlayerGui")
-
     keyGui.Destroying:Connect(function()
         blur:Destroy()
     end)
@@ -164,99 +162,7 @@ local function createKeyGui()
             notify("✅ Key Correct! | Loading Script...")
             keyGui:Destroy()
             blur.Size = 0
-
-            if gameName == "Anime Rails" then
-                local selectGui = Instance.new("ScreenGui")
-                selectGui.Name = "AnimeRails_SelectGui"
-                selectGui.Parent = player:WaitForChild("PlayerGui")
-
-                local frame = Instance.new("Frame")
-                frame.Size = UDim2.new(0, 350, 0, 210)
-                frame.Position = UDim2.new(0.5, -175, 0.5, -105)
-                frame.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
-                frame.BorderSizePixel = 0
-                frame.ZIndex = 1001
-                frame.Parent = selectGui
-                Instance.new("UICorner", frame).CornerRadius = UDim.new(0, 20)
-
-                local shadow = Instance.new("ImageLabel")
-                shadow.Name = "Shadow"
-                shadow.BackgroundTransparency = 1
-                shadow.Image = "rbxassetid://1316045217"
-                shadow.ImageColor3 = Color3.fromRGB(0, 0, 0)
-                shadow.ImageTransparency = 0.6
-                shadow.ScaleType = Enum.ScaleType.Slice
-                shadow.SliceCenter = Rect.new(10, 10, 118, 118)
-                shadow.Size = UDim2.new(1, 10, 1, 10)
-                shadow.Position = UDim2.new(0, -5, 0, -5)
-                shadow.ZIndex = 1000
-                shadow.Parent = frame
-
-                local title = Instance.new("TextLabel")
-                title.Parent = frame
-                title.Size = UDim2.new(1, 0, 0, 25)
-                title.Position = UDim2.new(0, 0, 0, 25)
-                title.BackgroundTransparency = 1
-                title.Text = "Select Script"
-                title.TextColor3 = Color3.fromRGB(255, 255, 255)
-                title.Font = Enum.Font.GothamBold
-                title.TextScaled = true
-                title.RichText = true
-                title.TextStrokeTransparency = 0.7
-                title.ZIndex = 1002
-
-                local btnDupeMCA = Instance.new("TextButton")
-                btnDupeMCA.Parent = frame
-                btnDupeMCA.Size = UDim2.new(1, -40, 0, 50)
-                btnDupeMCA.Position = UDim2.new(0, 20, 0, 70)
-                btnDupeMCA.BackgroundColor3 = Color3.fromRGB(85, 255, 127)
-                btnDupeMCA.Text = "Dupe MCA"
-                btnDupeMCA.TextColor3 = Color3.fromRGB(20, 20, 20)
-                btnDupeMCA.Font = Enum.Font.GothamBold
-                btnDupeMCA.TextSize = 22
-                btnDupeMCA.ZIndex = 1002
-                Instance.new("UICorner", btnDupeMCA).CornerRadius = UDim.new(0, 15)
-
-                local btnDupeCash = Instance.new("TextButton")
-                btnDupeCash.Parent = frame
-                btnDupeCash.Size = UDim2.new(1, -40, 0, 50)
-                btnDupeCash.Position = UDim2.new(0, 20, 0, 130)
-                btnDupeCash.BackgroundColor3 = Color3.fromRGB(85, 255, 127)
-                btnDupeCash.Text = "Dupe Cash"
-                btnDupeCash.TextColor3 = Color3.fromRGB(20, 20, 20)
-                btnDupeCash.Font = Enum.Font.GothamBold
-                btnDupeCash.TextSize = 22
-                btnDupeCash.ZIndex = 1002
-                Instance.new("UICorner", btnDupeCash).CornerRadius = UDim.new(0, 15)
-
-                btnDupeMCA.MouseButton1Click:Connect(function()
-                    notify("⚙️ Loading Dupe MCA Script...")
-                    selectGui:Destroy()
-                    loadstring(game:HttpGet("https://pastebin.com/raw/tWLaQUPc"))()
-                end)
-
-                btnDupeCash.MouseButton1Click:Connect(function()
-                    notify("⚙️ Loading Dupe Cash Script...")
-                    selectGui:Destroy()
-                    loadstring(game:HttpGet("https://pastebin.com/raw/Cm328YQH"))()
-                end)
-            else
-                local scriptURL
-                if gameName:find("No%-Scope Arcade") then
-                    scriptURL = 'https://pastebin.com/raw/0xcSxSW4'
-                elseif gameName == "No-Scope Arcade" then
-                    scriptURL = 'https://pastebin.com/raw/0xcSxSW4'
-                elseif gameName == "Arsenal" then
-                    scriptURL = 'https://pastebin.com/raw/NeCbQB58'
-                end
-
-                if scriptURL then
-                    loadstring(game:HttpGet(scriptURL))()
-                    notify("🎮 Game: " .. gameName .. " | Game has finished loading...")
-                else
-                    notify("‼️ No script available for this game!")
-                end
-            end
+            loadScript()
         else
             notify("❌ Key Incorrect! Please try again.")
             local flashGoal = {BackgroundColor3 = Color3.fromRGB(255, 70, 70)}
@@ -280,11 +186,104 @@ local function createKeyGui()
     return keyGui
 end
 
-local keyGui = player.PlayerGui:FindFirstChild("DYHUB_KeyGui") or createKeyGui()
-
-player.CharacterAdded:Connect(function()
-    wait(1)
-    if keyGui and not keyGui.Enabled then
-        keyGui.Enabled = true
+function loadScript()
+    if gameName == "Anime Rails" then
+        local selectGui = Instance.new("ScreenGui")
+        selectGui.Name = "AnimeRails_SelectGui"
+        selectGui.Parent = player:WaitForChild("PlayerGui")
+        local frame = Instance.new("Frame")
+        frame.Size = UDim2.new(0, 350, 0, 210)
+        frame.Position = UDim2.new(0.5, -175, 0.5, -105)
+        frame.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+        frame.BorderSizePixel = 0
+        frame.ZIndex = 1001
+        frame.Parent = selectGui
+        Instance.new("UICorner", frame).CornerRadius = UDim.new(0, 20)
+        local shadow = Instance.new("ImageLabel")
+        shadow.Name = "Shadow"
+        shadow.BackgroundTransparency = 1
+        shadow.Image = "rbxassetid://1316045217"
+        shadow.ImageColor3 = Color3.fromRGB(0, 0, 0)
+        shadow.ImageTransparency = 0.6
+        shadow.ScaleType = Enum.ScaleType.Slice
+        shadow.SliceCenter = Rect.new(10, 10, 118, 118)
+        shadow.Size = UDim2.new(1, 10, 1, 10)
+        shadow.Position = UDim2.new(0, -5, 0, -5)
+        shadow.ZIndex = 1000
+        shadow.Parent = frame
+        local title = Instance.new("TextLabel")
+        title.Parent = frame
+        title.Size = UDim2.new(1, 0, 0, 25)
+        title.Position = UDim2.new(0, 0, 0, 25)
+        title.BackgroundTransparency = 1
+        title.Text = "Select Script"
+        title.TextColor3 = Color3.fromRGB(255, 255, 255)
+        title.Font = Enum.Font.GothamBold
+        title.TextScaled = true
+        title.RichText = true
+        title.TextStrokeTransparency = 0.7
+        title.ZIndex = 1002
+        local btnDupeMCA = Instance.new("TextButton")
+        btnDupeMCA.Parent = frame
+        btnDupeMCA.Size = UDim2.new(1, -40, 0, 50)
+        btnDupeMCA.Position = UDim2.new(0, 20, 0, 70)
+        btnDupeMCA.BackgroundColor3 = Color3.fromRGB(85, 255, 127)
+        btnDupeMCA.Text = "Dupe MCA"
+        btnDupeMCA.TextColor3 = Color3.fromRGB(20, 20, 20)
+        btnDupeMCA.Font = Enum.Font.GothamBold
+        btnDupeMCA.TextSize = 22
+        btnDupeMCA.ZIndex = 1002
+        Instance.new("UICorner", btnDupeMCA).CornerRadius = UDim.new(0, 15)
+        local btnDupeCash = Instance.new("TextButton")
+        btnDupeCash.Parent = frame
+        btnDupeCash.Size = UDim2.new(1, -40, 0, 50)
+        btnDupeCash.Position = UDim2.new(0, 20, 0, 130)
+        btnDupeCash.BackgroundColor3 = Color3.fromRGB(85, 255, 127)
+        btnDupeCash.Text = "Dupe Cash"
+        btnDupeCash.TextColor3 = Color3.fromRGB(20, 20, 20)
+        btnDupeCash.Font = Enum.Font.GothamBold
+        btnDupeCash.TextSize = 22
+        btnDupeCash.ZIndex = 1002
+        Instance.new("UICorner", btnDupeCash).CornerRadius = UDim.new(0, 15)
+        btnDupeMCA.MouseButton1Click:Connect(function()
+            notify("⚙️ Loading Dupe MCA Script...")
+            selectGui:Destroy()
+            loadstring(game:HttpGet("https://pastebin.com/raw/tWLaQUPc"))()
+        end)
+        btnDupeCash.MouseButton1Click:Connect(function()
+            notify("⚙️ Loading Dupe Cash Script...")
+            selectGui:Destroy()
+            loadstring(game:HttpGet("https://pastebin.com/raw/Cm328YQH"))()
+        end)
+    else
+        local scriptURL
+        if gameName:find("No%-Scope Arcade") then
+            scriptURL = 'https://pastebin.com/raw/0xcSxSW4'
+        elseif gameName == "No-Scope Arcade" then
+            scriptURL = 'https://pastebin.com/raw/0xcSxSW4'
+        elseif gameName == "Arsenal" then
+            scriptURL = 'https://pastebin.com/raw/NeCbQB58'
+        end
+        if scriptURL then
+            loadstring(game:HttpGet(scriptURL))()
+            notify("🎮 Game: " .. gameName .. " | Game has finished loading...")
+        else
+            notify("‼️ No script available for this game!")
+        end
     end
-end)
+end
+
+if player.Name == "Yolmar_43" then
+    notify("🛡️ Owner! No key required | Loading Script...")
+    blur:Destroy()
+    loadScript()
+else
+    local keyGui = player.PlayerGui:FindFirstChild("DYHUB_KeyGui") or createKeyGui()
+    player.CharacterAdded:Connect(function()
+        wait(1)
+        if keyGui and not keyGui.Enabled then
+            keyGui.Enabled = true
+        end
+    end)
+end
+
