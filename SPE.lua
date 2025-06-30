@@ -14,7 +14,7 @@ local function notify(text)
     end)
 end
 
-notify("DYHUB Loaded!")
+notify("Mode: Normal | DYHUB Loaded!")
 
 local screenGui = Instance.new("ScreenGui")
 screenGui.Name = "DYHUB | Auto Farm | @Normal-Mode"
