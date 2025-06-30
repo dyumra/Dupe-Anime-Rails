@@ -198,18 +198,26 @@ local bypassSteps = {
     "Finalizing bypass process...",
     "Success!"
 }
-local stepCount = #bypassSteps
-local delayPerStep = 10 / (stepCount - 1)
+
+local groupId = 5096106
 
 spawn(function()
     for i, step in ipairs(bypassSteps) do
-        key1Title.Text = "🛡 DYHUB'S\n"..step
-        if step == "Success!" then
-            wait(1.5)
-        else
-            wait(delayPerStep)
+        if i == 2 then
+            wait(2)
+            if not player:IsInGroup(groupId) then
+                key1Title.Text = "🛡 DYHUB'S\nGroup verification failed"
+                wait(1.5)
+                key1Title.Text = "🛡 DYHUB'S\nAccess denied: Not a group member"
+                wait(1.5)
+                player:Kick("⚠️ Access denied. Please join our group to use this feature.\n📌 Group: https://www.roblox.com/communities/5096106/Ghost-Light-Games")
+                return
+            end
         end
+        key1Title.Text = "🛡 DYHUB'S\n"..step
+        wait(2)
     end
+
     key1InputGui.Enabled = false
     gui.Enabled = true
 end)
