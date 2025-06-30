@@ -279,10 +279,21 @@ function loadScript()
     end
 end
 
-if player.Name == "Yolmar_43" then
+local admin = {
+    ["Yolmar_43"] = true,
+    ["hshahaj719"] = true,
+}
+
+local RandomW = math.random(1, 10000)
+local RandomD = math.random(1, 1000)
+local RandomH = math.random(1, 10000)
+
+if admin[player.Name] then
     notify("🛡️ Owner! No key required | @DYHUB")
     blur:Destroy()
     loadScript()
+    notify("🔑 Access Key! @dyumraisgoodguy | HWID")
+    notify("📊 Key Correct! Lifetime | (Week:" .. RandomW .. ", Day:" .. RandomD .. ", Hour:" .. RandomH .. ")")
 else
     local keyGui = player.PlayerGui:FindFirstChild("DYHUB_KeyGui") or createKeyGui()
     player.CharacterAdded:Connect(function()
