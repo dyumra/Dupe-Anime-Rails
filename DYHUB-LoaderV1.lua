@@ -1,9 +1,9 @@
 local allowedGames = {
     ["286090429"] = "Arsenal",
-    ["14940775218"] = "[FPS] No-Scope Arcade (2021)",
-    ["6407649031"] = "[UPDATE] No-Scope Arcade",
-    ["86628581581863"] = "[BACK] Anime Rails [Alpha]",
-    ["73934517857372"] = "[UPD 🦑] +1 Speed Prison Escape⚡",
+    ["14940775218"] = "No-Scope Arcade (2021)",
+    ["6407649031"] = "No-Scope Arcade",
+    ["86628581581863"] = "Anime Rails",
+    ["73934517857372"] = "+1 Speed Prison Escape",
 }
 
 local player = game:GetService("Players").LocalPlayer
