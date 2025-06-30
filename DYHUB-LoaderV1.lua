@@ -23,7 +23,7 @@ local function notify(text)
     print("Notify:", text)
 end
 
-notify("🛡️ DYHUB'S TEAM | Join our (.gg/DYHUBGG)")
+notify("🛡️ DYHUB'S TEAM | Join our (.gg/vCpzGfscnY)")
 
 local placeId = tostring(game.PlaceId)
 local gameName = allowedGames[placeId]
@@ -35,7 +35,7 @@ if not gameName then
         Duration = 5
     })
     wait(2)
-    player:Kick("⚠️ This script is not supported in this game.\n 📊 Please run the script in a game that we support.\n🔗 Join our (.gg/DYHUBGG)")
+    player:Kick("⚠️ This script is not supported in this game.\n 📊 Please run the script in a game that we support.\n🔗 Join our (.gg/vCpzGfscnY)")
     return
 end
 
