@@ -14,7 +14,7 @@ local function notify(text)
     print("Notify:", text)
 end
 
-notify("🛡️ DYHUB'S TEAM\nJoin our (.gg/DYHUBGG)")
+notify("🛡️ DYHUB'S TEAM\nJoin our (dss.gg/dyhub)")
 
 local gui = Instance.new("ScreenGui")
 gui.Name = "Dupe-DYHUB | Inf-Cash | Anime Rails"
