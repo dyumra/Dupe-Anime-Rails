@@ -24,7 +24,7 @@ local function notify(text)
     print("Notify:", text)
 end
 
-notify("🛡️ DYHUB'S TEAM | Join our (.gg/vCpzGfscnY)")
+notify("🛡️ DYHUB'S TEAM | Join our (dss.gg/dyhub)")
 
 local placeId = tostring(game.PlaceId)
 local gameName = allowedGames[placeId]
