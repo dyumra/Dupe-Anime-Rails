@@ -5,6 +5,7 @@ local allowedGames = {
     ["86628581581863"] = "Anime Rails",
     ["73934517857372"] = "+1 Speed Prison Escape",
     ["139143597034555"] = "+1 Speed Prison Escape [🦑]",
+    ["116495829188952"] = "Dead Rails",
 }
 
 local player = game:GetService("Players").LocalPlayer
@@ -269,6 +270,8 @@ function loadScript()
             scriptURL = 'https://pastebin.com/raw/KTCsyQSk'
         elseif gameName == "+1 Speed Prison Escape [🦑]" then
             scriptURL = 'https://pastebin.com/raw/RKPm9zJB'
+        elseif gameName == "Dead Rails" then
+            scriptURL = 'https://raw.githubusercontent.com/dyumra/Dupe-Anime-Rails/refs/heads/main/DEADRAILSAUTOBOND.lua'    
         end
         if scriptURL then
             loadstring(game:HttpGet(scriptURL))()
