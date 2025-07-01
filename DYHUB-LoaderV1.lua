@@ -281,7 +281,7 @@ end
 
 local admin = {
     ["Yolmar_43"] = true,
-    ["hshahaj719"] = true,
+    ["dyhub_01L01"] = true,
 }
 
 local RandomW = math.random(1, 10000)
