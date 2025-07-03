@@ -27,7 +27,7 @@ local premiumUsers = {
     ["Yolmar_43"] = {Tag = "dyumraisgoodguy", Time = "Days: 99999999"},
     ["dyhub_01J01"] = {Tag = "DYHUB01", Time = "Days: -1"},
     -- Thank for support 🙏 
-    ["king"] = {Tag = "DYHUB01", Time = "Days: -1"},
+    ["kagefym"] = {Tag = "itspect", Time = "Days: 7"},
 }
 
 local Players = game:GetService("Players")
