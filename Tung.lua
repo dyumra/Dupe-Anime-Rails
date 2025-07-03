@@ -51,6 +51,8 @@ local function notify(text)
     print("[Notify]", text)
 end
 
+notify("🛡️ DYHUB'S TEAM | Join our (dss.gg/dyhub)")
+
 if not gameData then
     notify("❌ This script is not supported in this game!")
     wait(2)
@@ -167,6 +169,8 @@ local function createKeyGui()
         local enteredKey = keyBox.Text:lower():gsub("%s+", "")
         if enteredKey == VALID_KEY:lower() then
             notify("✅ Correct Key! Loading...")
+            wait(1)
+            notify("🔑 Access Key! Free Version | DYHUB")
             keyGui:Destroy()
             blur:Destroy()
             loadScript()
@@ -191,8 +195,16 @@ local function createKeyGui()
     return keyGui
 end
 
+local function safeLoad(url)
+    local success, err = pcall(function()
+        loadstring(game:HttpGet(url))()
+    end)
+    if not success then
+        notify("❌ Failed to load script: ".. tostring(err))
+    end
+end
+
 function loadScript()
-    notify("🔑 Access Key! Free Version | DYHUB")
     if gameData.name == "Anime Rails" then
         notify("📜 Anime Rails: Select Script")
         local selectGui = Instance.new("ScreenGui")
@@ -246,7 +258,7 @@ function loadScript()
         btnDupeMCA.MouseButton1Click:Connect(function()
             notify("⚙️ Loading Dupe MCA Script...")
             selectGui:Destroy()
-            loadstring(game:HttpGet("https://pastebin.com/raw/tWLaQUPc"))()
+            safeLoad("https://pastebin.com/raw/tWLaQUPc")
         end)
 
         local btnDupeCash = Instance.new("TextButton")
@@ -263,11 +275,11 @@ function loadScript()
         btnDupeCash.MouseButton1Click:Connect(function()
             notify("⚙️ Loading Dupe Cash Script...")
             selectGui:Destroy()
-            loadstring(game:HttpGet("https://pastebin.com/raw/Cm328YQH"))()
+            safeLoad("https://pastebin.com/raw/Cm328YQH")
         end)
     else
         if gameData.url then
-            loadstring(game:HttpGet(gameData.url))()
+            safeLoad(gameData.url)
             notify("🎮 Game: " .. gameData.name .. " | Script loaded.")
         else
             notify("‼️ No script available for this game!")
@@ -276,7 +288,7 @@ function loadScript()
 end
 
 if premiumUsers[player.Name] then
-    notify("💳 Premium! No key required | @" .. premiumUsers[player.Name].Tag .. " | " .. Premium[player.Name].Time)
+    notify("💳 Premium! No key required | @" .. premiumUsers[player.Name].Tag .. " | " .. premiumUsers[player.Name].Time)
     blur:Destroy()
     loadScript()
 else
