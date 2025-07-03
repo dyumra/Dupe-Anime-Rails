@@ -8,11 +8,11 @@ local allowedGames = {
     ["70876832253163"] = {name = "Dead Rails", url = "https://raw.githubusercontent.com/Ayvathion/AV-On-Top/refs/heads/main/Loader.lua"},
     ["13772394625"] = {name = "Blade Ball", url = "https://raw.githubusercontent.com/dyumra/DYHUB-Universal-Game/refs/heads/main/BLADEBALL.lua"},
     ["136806264049477"] = {name = "Keys and Knives", url = "https://raw.githubusercontent.com/gumanba/Scripts/main/KeysandKnives"},
+    ["126509999114328"] = {name = "99 Nights in the Forest", url = "https://raw.githubusercontent.com/H4xScripts/Loader/refs/heads/main/loader.lua"},
 }
 
 local AllowGameforPremium = {
     ["136372246050123"] = {name = "Stick Battles", url = "https://raw.githubusercontent.com/dyumra/DYHUB-Universal-Game/main/STICKBATTLE.lua"},
-    ["126509999114328"] = {name = "99 Nights in the Forest", url = "https://raw.githubusercontent.com/H4xScripts/Loader/refs/heads/main/loader.lua"},
     ["89744231770777"] = {name = "Dead Spells", url = "https://raw.githubusercontent.com/dyumra/DYHUB-Universal-Game/refs/heads/main/DS.lua"},
     ["142823291"] = {name = "Murder Mystery 2", url = "https://raw.githubusercontent.com/dyumra/DYHUB-Universal-Game/refs/heads/main/MM2.lua"},
     ["126884695634066"] = {name = "Grow a Garden", url = "https://raw.githubusercontent.com/Ayvathion/AV-On-Top/refs/heads/main/Loader.lua"},
