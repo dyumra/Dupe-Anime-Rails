@@ -190,7 +190,7 @@ local function createKeyGui()
 
     getKeyBtn.MouseButton1Click:Connect(function()
         clickTween(getKeyBtn)
-        pcall(function() setclipboard("https://github.com/dyumra/DYHUB-Universal") end)
+        pcall(function() setclipboard("https://pastebin.com/raw/iiQREtkr") end)
         notify("🔗 Link copied to clipboard!")
     end)
 
