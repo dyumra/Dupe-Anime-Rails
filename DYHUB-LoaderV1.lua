@@ -5,7 +5,7 @@ local allowedGames = {
     ["86628581581863"] = {name = "Anime Rails"},
     ["73934517857372"] = {name = "+1 Speed Prison Escape", url = "https://pastebin.com/raw/KTCsyQSk"},
     ["139143597034555"] = {name = "+1 Speed Prison Escape [🦑]", url = "https://pastebin.com/raw/RKPm9zJB"},
-    ["70876832253163"] = {name = "Dead Rails", url = "https://raw.githubusercontent.com/dyumra/Dupe-Anime-Rails/refs/heads/main/DEADRAILSAUTOBOND.lua"},
+    ["70876832253163"] = {name = "Dead Rails", url = "https://raw.githubusercontent.com/Ayvathion/AV-On-Top/refs/heads/main/Loader.lua"},
     ["13772394625"] = {name = "Blade Ball", url = "https://raw.githubusercontent.com/dyumra/DYHUB-Universal-Game/refs/heads/main/BLADEBALL.lua"},
     ["136806264049477"] = {name = "Keys and Knives", url = "https://raw.githubusercontent.com/gumanba/Scripts/main/KeysandKnives"},
 }
