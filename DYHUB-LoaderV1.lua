@@ -1,19 +1,44 @@
 local allowedGames = {
-    ["286090429"] = "Arsenal",
-    ["14940775218"] = "No-Scope Arcade (2021)",
-    ["6407649031"] = "No-Scope Arcade",
-    ["86628581581863"] = "Anime Rails",
-    ["73934517857372"] = "+1 Speed Prison Escape",
-    ["139143597034555"] = "+1 Speed Prison Escape [🦑]",
-    ["116495829188952"] = "Dead Rails",
-    ["13772394625"] = "Blade Ball",
+    ["286090429"] = {name = "Arsenal", url = "https://pastebin.com/raw/NeCbQB58"},
+    ["14940775218"] = {name = "No-Scope Arcade (2021)", url = "https://pastebin.com/raw/0xcSxSW4"},
+    ["6407649031"] = {name = "No-Scope Arcade", url = "https://pastebin.com/raw/0xcSxSW4"},
+    ["86628581581863"] = {name = "Anime Rails"},
+    ["73934517857372"] = {name = "+1 Speed Prison Escape", url = "https://pastebin.com/raw/KTCsyQSk"},
+    ["139143597034555"] = {name = "+1 Speed Prison Escape [🦑]", url = "https://pastebin.com/raw/RKPm9zJB"},
+    ["70876832253163"] = {name = "Dead Rails", url = "https://raw.githubusercontent.com/dyumra/Dupe-Anime-Rails/refs/heads/main/DEADRAILSAUTOBOND.lua"},
+    ["13772394625"] = {name = "Blade Ball", url = "https://raw.githubusercontent.com/dyumra/DYHUB-Universal-Game/refs/heads/main/BLADEBALL.lua"},
 }
 
-local player = game:GetService("Players").LocalPlayer
+local AllowGameforPremium = {
+    ["136372246050123"] = {name = "Stick Battles", url = "https://raw.githubusercontent.com/dyumra/DYHUB-Universal-Game/main/STICKBATTLE.lua"},
+    ["126509999114328"] = {name = "99 Nights in the Forest", url = "https://raw.githubusercontent.com/dyumra/DYHUB-Universal-Game/refs/heads/main/99night.lua"},
+    ["89744231770777"] = {name = "Dead Spells", url = "https://raw.githubusercontent.com/dyumra/DYHUB-Universal-Game/refs/heads/main/DS.lua"},
+    ["142823291"] = {name = "Murder Mystery 2", url = "https://raw.githubusercontent.com/dyumra/DYHUB-Universal-Game/refs/heads/main/MM2.lua"},
+    ["109983668079237"] = {name = "Steal a Brainrot", url = "https://raw.githubusercontent.com/dyumra/DYHUB-Universal-Game/refs/heads/main/SAB.lua"},
+    ["95702387256198"] = {name = "Steal a Car", url = "https://raw.githubusercontent.com/dyumra/DYHUB-Universal-Game/refs/heads/main/SAC.lua"},
+    ["10449761463"] = {name = "The Strongest Battleground", url = "https://raw.githubusercontent.com/dyumra/DYHUB-Universal-Game/refs/heads/main/TSB.lua"},
+}
+
+local premiumUsers = {
+    ["Yolmar_43"] = {Tag = "dyumraisgoodguy", Time = "Days: 99999999"},
+    ["dyhub_01J01"] = {Tag = "DYHUB01", Time = "Days: -1"},
+    -- Thank for support 🙏 
+    ["king"] = {Tag = "DYHUB01", Time = "Days: -1"},
+}
+
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
 local StarterGui = game:GetService("StarterGui")
-local RunService = game:GetService("RunService")
 local TweenService = game:GetService("TweenService")
-local VALID_KEY = "DYHUBTHEBEST"
+local Lighting = game:GetService("Lighting")
+
+local blur = Instance.new("BlurEffect")
+blur.Size = 15
+blur.Parent = Lighting
+
+local placeId = tostring(game.PlaceId)
+local isPremiumGame = AllowGameforPremium[placeId] ~= nil
+local gameData = allowedGames[placeId] or AllowGameforPremium[placeId]
 
 local function notify(text)
     pcall(function()
@@ -23,70 +48,60 @@ local function notify(text)
             Duration = 4
         })
     end)
-    print("Notify:", text)
+    print("[Notify]", text)
 end
 
 notify("🛡️ DYHUB'S TEAM | Join our (dss.gg/dyhub)")
 
-local placeId = tostring(game.PlaceId)
-local gameName = allowedGames[placeId]
-
-if not gameName then
-    StarterGui:SetCore("SendNotification", {
-        Title = "DYHUB",
-        Text = "This script only works in allowed games!",
-        Duration = 5
-    })
+if not gameData then
+    notify("❌ This script is not supported in this game!")
     wait(2)
-    player:Kick("⚠️ This script is not supported in this game.\n 📊 Please run the script in a game that we support.\n🔗 Join our (.gg/vCpzGfscnY)")
+    player:Kick("⚠️ Script not supported here.\n📊 Please run the script in supported games.\n🔗 Join our (dsc.gg/dyhub)")
     return
 end
 
-local blur = Instance.new("BlurEffect")
-blur.Size = 15
-blur.Parent = game:GetService("Lighting")
+if isPremiumGame and not premiumUsers[player.Name] then
+    notify("⛔ You must be Premium to use this script in this game!")
+    wait(3)
+    player:Kick("⛔ Premium only game!\n📊 Get premium to run this script here.\n🔗 Join our (dsc.gg/dyhub)")
+    return
+end
 
 local function clickTween(button)
-    local originalColor = button.BackgroundColor3
-    local goal = {BackgroundColor3 = originalColor:lerp(Color3.fromRGB(40,40,40), 0.5)}
+    local original = button.BackgroundColor3
+    local goal = {BackgroundColor3 = original:lerp(Color3.fromRGB(40, 40, 40), 0.5)}
     local tweenInfo = TweenInfo.new(0.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
     local tween = TweenService:Create(button, tweenInfo, goal)
     tween:Play()
     tween.Completed:Wait()
-    local tweenBack = TweenService:Create(button, tweenInfo, {BackgroundColor3 = originalColor})
-    tweenBack:Play()
+    TweenService:Create(button, tweenInfo, {BackgroundColor3 = original}):Play()
 end
+
+local VALID_KEY = "DYHUBTHEBEST"
 
 local function createKeyGui()
     local keyGui = Instance.new("ScreenGui")
     keyGui.Name = "DYHUB_KeyGui"
     keyGui.ResetOnSpawn = false
-    keyGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
     keyGui.Parent = player:WaitForChild("PlayerGui")
-    keyGui.Destroying:Connect(function()
-        blur:Destroy()
-    end)
+    keyGui.Destroying:Connect(function() blur:Destroy() end)
 
-    local bgOverlay = Instance.new("Frame")
-    bgOverlay.Size = UDim2.new(1, 0, 1, 0)
-    bgOverlay.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
-    bgOverlay.BackgroundTransparency = 0.7
-    bgOverlay.ZIndex = 1000
-    bgOverlay.Parent = keyGui
+    local bg = Instance.new("Frame", keyGui)
+    bg.Size = UDim2.new(1, 0, 1, 0)
+    bg.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+    bg.BackgroundTransparency = 0.7
+    bg.ZIndex = 1000
 
-    local frame = Instance.new("Frame")
+    local frame = Instance.new("Frame", keyGui)
     frame.Size = UDim2.new(0, 350, 0, 210)
     frame.Position = UDim2.new(0.5, -175, 0.5, -105)
     frame.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
-    frame.BorderSizePixel = 0
     frame.ZIndex = 1001
-    frame.Parent = keyGui
     Instance.new("UICorner", frame).CornerRadius = UDim.new(0, 20)
 
-    local shadow = Instance.new("ImageLabel")
-    shadow.Name = "Shadow"
-    shadow.BackgroundTransparency = 1
+    local shadow = Instance.new("ImageLabel", frame)
     shadow.Image = "rbxassetid://1316045217"
+    shadow.BackgroundTransparency = 1
     shadow.ImageColor3 = Color3.fromRGB(0, 0, 0)
     shadow.ImageTransparency = 0.6
     shadow.ScaleType = Enum.ScaleType.Slice
@@ -94,23 +109,18 @@ local function createKeyGui()
     shadow.Size = UDim2.new(1, 10, 1, 10)
     shadow.Position = UDim2.new(0, -5, 0, -5)
     shadow.ZIndex = 1000
-    shadow.Parent = frame
 
-    local title = Instance.new("TextLabel")
-    title.Parent = frame
+    local title = Instance.new("TextLabel", frame)
     title.Size = UDim2.new(1, 0, 0, 25)
     title.Position = UDim2.new(0, 0, 0, 25)
     title.BackgroundTransparency = 1
+    title.Text = "Access Key Required"
     title.TextColor3 = Color3.fromRGB(255, 255, 255)
     title.Font = Enum.Font.GothamBold
     title.TextScaled = true
-    title.RichText = true
-    title.TextStrokeTransparency = 0.7
     title.ZIndex = 1002
-    title.Text = "Access Key Required"
 
-    local subtitle = Instance.new("TextLabel")
-    subtitle.Parent = frame
+    local subtitle = Instance.new("TextLabel", frame)
     subtitle.Size = UDim2.new(1, -40, 0, 30)
     subtitle.Position = UDim2.new(0, 20, 0, 50)
     subtitle.BackgroundTransparency = 1
@@ -118,25 +128,22 @@ local function createKeyGui()
     subtitle.TextColor3 = Color3.fromRGB(180, 180, 180)
     subtitle.Font = Enum.Font.Gotham
     subtitle.TextSize = 16
-    subtitle.TextXAlignment = Enum.TextXAlignment.Center
     subtitle.ZIndex = 1002
 
-    local keyBox = Instance.new("TextBox")
-    keyBox.Parent = frame
+    local keyBox = Instance.new("TextBox", frame)
     keyBox.Size = UDim2.new(1, -40, 0, 40)
     keyBox.Position = UDim2.new(0, 20, 0, 80)
     keyBox.PlaceholderText = "Enter key here..."
     keyBox.Text = ""
-    keyBox.TextColor3 = Color3.fromRGB(255, 255, 255)
     keyBox.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
-    keyBox.ClearTextOnFocus = false
+    keyBox.TextColor3 = Color3.fromRGB(255, 255, 255)
     keyBox.Font = Enum.Font.GothamSemibold
     keyBox.TextSize = 20
+    keyBox.ClearTextOnFocus = false
     keyBox.ZIndex = 1002
     Instance.new("UICorner", keyBox).CornerRadius = UDim.new(0, 15)
 
-    local submitBtn = Instance.new("TextButton")
-    submitBtn.Parent = frame
+    local submitBtn = Instance.new("TextButton", frame)
     submitBtn.Size = UDim2.new(1, -40, 0, 40)
     submitBtn.Position = UDim2.new(0, 20, 0, 122)
     submitBtn.Text = "Submit"
@@ -147,8 +154,7 @@ local function createKeyGui()
     submitBtn.ZIndex = 1002
     Instance.new("UICorner", submitBtn).CornerRadius = UDim.new(0, 15)
 
-    local getKeyBtn = Instance.new("TextButton")
-    getKeyBtn.Parent = frame
+    local getKeyBtn = Instance.new("TextButton", frame)
     getKeyBtn.Size = UDim2.new(1, -40, 0, 40)
     getKeyBtn.Position = UDim2.new(0, 20, 0, 165)
     getKeyBtn.Text = "Get Key"
@@ -162,13 +168,15 @@ local function createKeyGui()
     submitBtn.MouseButton1Click:Connect(function()
         clickTween(submitBtn)
         local enteredKey = keyBox.Text:lower():gsub("%s+", "")
-        if enteredKey == VALID_KEY:lower() or enteredKey == "dev" then
-            notify("✅ Key Correct! | Loading Script...")
+        if enteredKey == VALID_KEY:lower() then
+            notify("✅ Correct Key! Loading...")
+            wait(1)
+            notify("🔑 Access Key! Free Version | DYHUB")
             keyGui:Destroy()
-            blur.Size = 0
+            blur:Destroy()
             loadScript()
         else
-            notify("❌ Key Incorrect! Please try again.")
+            notify("❌ Incorrect Key! Please try again.")
             local flashGoal = {BackgroundColor3 = Color3.fromRGB(255, 70, 70)}
             local normalGoal = {BackgroundColor3 = Color3.fromRGB(70, 70, 70)}
             local flashTween = TweenService:Create(keyBox, TweenInfo.new(0.15), flashGoal)
@@ -181,17 +189,25 @@ local function createKeyGui()
 
     getKeyBtn.MouseButton1Click:Connect(function()
         clickTween(getKeyBtn)
-        pcall(function()
-            setclipboard("https://github.com/dyumra/DYHUB-Universal")
-        end)
+        pcall(function() setclipboard("https://github.com/dyumra/DYHUB-Universal") end)
         notify("🔗 Link copied to clipboard!")
     end)
 
     return keyGui
 end
 
+local function safeLoad(url)
+    local success, err = pcall(function()
+        loadstring(game:HttpGet(url))()
+    end)
+    if not success then
+        notify("❌ Failed to load script: ".. tostring(err))
+    end
+end
+
 function loadScript()
-    if gameName == "Anime Rails" then
+    if gameData.name == "Anime Rails" then
+        notify("📜 Anime Rails: Select Script")
         local selectGui = Instance.new("ScreenGui")
         selectGui.Name = "AnimeRails_SelectGui"
         selectGui.Parent = player:WaitForChild("PlayerGui")
@@ -215,6 +231,7 @@ function loadScript()
         shadow.Position = UDim2.new(0, -5, 0, -5)
         shadow.ZIndex = 1000
         shadow.Parent = frame
+
         local title = Instance.new("TextLabel")
         title.Parent = frame
         title.Size = UDim2.new(1, 0, 0, 25)
@@ -227,6 +244,7 @@ function loadScript()
         title.RichText = true
         title.TextStrokeTransparency = 0.7
         title.ZIndex = 1002
+
         local btnDupeMCA = Instance.new("TextButton")
         btnDupeMCA.Parent = frame
         btnDupeMCA.Size = UDim2.new(1, -40, 0, 50)
@@ -238,6 +256,12 @@ function loadScript()
         btnDupeMCA.TextSize = 22
         btnDupeMCA.ZIndex = 1002
         Instance.new("UICorner", btnDupeMCA).CornerRadius = UDim.new(0, 15)
+        btnDupeMCA.MouseButton1Click:Connect(function()
+            notify("⚙️ Loading Dupe MCA Script...")
+            selectGui:Destroy()
+            safeLoad("https://pastebin.com/raw/tWLaQUPc")
+        end)
+
         local btnDupeCash = Instance.new("TextButton")
         btnDupeCash.Parent = frame
         btnDupeCash.Size = UDim2.new(1, -40, 0, 50)
@@ -249,63 +273,25 @@ function loadScript()
         btnDupeCash.TextSize = 22
         btnDupeCash.ZIndex = 1002
         Instance.new("UICorner", btnDupeCash).CornerRadius = UDim.new(0, 15)
-        btnDupeMCA.MouseButton1Click:Connect(function()
-            notify("⚙️ Loading Dupe MCA Script...")
-            selectGui:Destroy()
-            loadstring(game:HttpGet("https://pastebin.com/raw/tWLaQUPc"))()
-        end)
         btnDupeCash.MouseButton1Click:Connect(function()
             notify("⚙️ Loading Dupe Cash Script...")
             selectGui:Destroy()
-            loadstring(game:HttpGet("https://pastebin.com/raw/Cm328YQH"))()
+            safeLoad("https://pastebin.com/raw/Cm328YQH")
         end)
     else
-        local scriptURL
-        if gameName:find("No%-Scope Arcade") then
-            scriptURL = 'https://pastebin.com/raw/0xcSxSW4'
-        elseif gameName == "No-Scope Arcade" then
-            scriptURL = 'https://pastebin.com/raw/0xcSxSW4'
-        elseif gameName == "Arsenal" then
-            scriptURL = 'https://pastebin.com/raw/NeCbQB58'
-        elseif gameName == "+1 Speed Prison Escape" then
-            scriptURL = 'https://pastebin.com/raw/KTCsyQSk'
-        elseif gameName == "+1 Speed Prison Escape [🦑]" then
-            scriptURL = 'https://pastebin.com/raw/RKPm9zJB'
-        elseif gameName == "Dead Rails" then
-            scriptURL = 'https://raw.githubusercontent.com/dyumra/Dupe-Anime-Rails/refs/heads/main/DEADRAILSAUTOBOND.lua'
-        elseif gameName == "Blade Ball" then
-            scriptURL = 'https://raw.githubusercontent.com/dyumra/DYHUB-Universal-Game/refs/heads/main/BLADEBALL.lua'
-        end
-        if scriptURL then
-            loadstring(game:HttpGet(scriptURL))()
-            notify("🎮 Game: " .. gameName .. " | Game has finished loading...")
+        if gameData.url then
+            safeLoad(gameData.url)
+            notify("🎮 Game: " .. gameData.name .. " | Script loaded.")
         else
             notify("‼️ No script available for this game!")
         end
     end
 end
 
-local admin = {
-    ["Yolmar_43"] = true,
-    ["dyhub_01L01"] = true,
-}
-
-local RandomW = math.random(1, 10000)
-local RandomD = math.random(1, 1000)
-local RandomH = math.random(1, 10000)
-
-if admin[player.Name] then
-    notify("🛡️ Owner! No key required | @DYHUB")
+if premiumUsers[player.Name] then
+    notify("💳 Premium! No key required | @" .. premiumUsers[player.Name].Tag .. " | " .. premiumUsers[player.Name].Time)
     blur:Destroy()
     loadScript()
-    notify("🔑 Access Key! @dyumraisgoodguy | HWID")
-    notify("📊 Key Correct! Lifetime | (Week:" .. RandomW .. ", Day:" .. RandomD .. ", Hour:" .. RandomH .. ")")
 else
-    local keyGui = player.PlayerGui:FindFirstChild("DYHUB_KeyGui") or createKeyGui()
-    player.CharacterAdded:Connect(function()
-        wait(1)
-        if keyGui and not keyGui.Enabled then
-            keyGui.Enabled = true
-        end
-    end)
+    createKeyGui()
 end
