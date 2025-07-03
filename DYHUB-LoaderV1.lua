@@ -7,13 +7,13 @@ local allowedGames = {
     ["139143597034555"] = {name = "+1 Speed Prison Escape [🦑]", url = "https://pastebin.com/raw/RKPm9zJB"},
     ["70876832253163"] = {name = "Dead Rails", url = "https://raw.githubusercontent.com/dyumra/Dupe-Anime-Rails/refs/heads/main/DEADRAILSAUTOBOND.lua"},
     ["13772394625"] = {name = "Blade Ball", url = "https://raw.githubusercontent.com/dyumra/DYHUB-Universal-Game/refs/heads/main/BLADEBALL.lua"},
+    ["136806264049477"] = {name = "Keys and Knives", url = "https://raw.githubusercontent.com/gumanba/Scripts/main/KeysandKnives"},
 }
 
 local AllowGameforPremium = {
     ["136372246050123"] = {name = "Stick Battles", url = "https://raw.githubusercontent.com/dyumra/DYHUB-Universal-Game/main/STICKBATTLE.lua"},
     ["126509999114328"] = {name = "99 Nights in the Forest", url = "https://raw.githubusercontent.com/dyumra/DYHUB-Universal-Game/refs/heads/main/99night.lua"},
     ["89744231770777"] = {name = "Dead Spells", url = "https://raw.githubusercontent.com/dyumra/DYHUB-Universal-Game/refs/heads/main/DS.lua"},
-    ["136806264049477"] = {name = "Keys and Knives", url = "https://raw.githubusercontent.com/gumanba/Scripts/main/KeysandKnives"},
     ["142823291"] = {name = "Murder Mystery 2", url = "https://raw.githubusercontent.com/dyumra/DYHUB-Universal-Game/refs/heads/main/MM2.lua"},
     ["109983668079237"] = {name = "Steal a Brainrot", url = "https://raw.githubusercontent.com/dyumra/DYHUB-Universal-Game/refs/heads/main/SAB.lua"},
     ["95702387256198"] = {name = "Steal a Car", url = "https://raw.githubusercontent.com/dyumra/DYHUB-Universal-Game/refs/heads/main/SAC.lua"},
