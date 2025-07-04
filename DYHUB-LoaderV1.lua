@@ -30,7 +30,7 @@ local AllowGameforPremium = {
 
 local premiumUsers = {
     ["Yolmar_43"] = {Tag = "dyumraisgoodguy", Time = "Days: 99999999"},
-    ["dyhub_01J01"] = {Tag = "DYHUB01", Time = "Days: -1"},
+    ["dyhub_01L01"] = {Tag = "DYHUB01", Time = "Days: -1"},
     -- Thank for support 🙏 
     ["kagefym"] = {Tag = "itspect", Time = "Times: Lifetime"},
     ["Yavib_Aga"] = {Tag = "yavib", Time = "Times: Lifetime"},
