@@ -6,7 +6,6 @@ local allowedGames = {
     ["73934517857372"] = {name = "+1 Speed Prison Escape", url = "https://pastebin.com/raw/KTCsyQSk"},
     ["139143597034555"] = {name = "+1 Speed Prison Escape [🦑]", url = "https://pastebin.com/raw/RKPm9zJB"},
     ["70876832253163"] = {name = "Dead Rails", url = "https://raw.githubusercontent.com/thantzy/thanhub/refs/heads/main/thanv1"},
-    ["13772394625"] = {name = "Blade Ball", url = "https://raw.githubusercontent.com/dyumra/DYHUB-Universal-Game/refs/heads/main/BLADEBALL.lua"},
     ["136806264049477"] = {name = "Keys and Knives", url = "https://raw.githubusercontent.com/gumanba/Scripts/main/KeysandKnives"},
     ["126509999114328"] = {name = "99 Nights in the Forest", url = "https://raw.githubusercontent.com/H4xScripts/Loader/refs/heads/main/loader.lua"},
 }
