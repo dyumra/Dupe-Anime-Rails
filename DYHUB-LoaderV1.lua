@@ -12,6 +12,7 @@ local allowedGames = {
 }
 
 local AllowGameforPremium = {
+    ["2788229376"] = {name = "Da Hood", url = "https://raw.githubusercontent.com/dyumra/DYHUB-Universal-Game/refs/heads/main/DaHood.lua"},
     ["136372246050123"] = {name = "Stick Battles", url = "https://raw.githubusercontent.com/dyumra/DYHUB-Universal-Game/main/STICKBATTLE.lua"},
     ["89744231770777"] = {name = "Dead Spells", url = "https://raw.githubusercontent.com/dyumra/DYHUB-Universal-Game/refs/heads/main/DS.lua"},
     ["142823291"] = {name = "Murder Mystery 2", url = "https://raw.githubusercontent.com/dyumra/DYHUB-Universal-Game/refs/heads/main/MM2.lua"},
