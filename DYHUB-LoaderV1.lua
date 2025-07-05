@@ -12,6 +12,8 @@ local allowedGames = {
 }
 
 local AllowGameforPremium = {
+    ["6516141723"] = {name = "Doors", url = "https://raw.githubusercontent.com/KINGHUB01/BlackKing-obf/main/Doors%20Blackking%20And%20BobHub"},
+    ["87039211657390"] = {name = "Arise Crossover", url = "https://raw.githubusercontent.com/EtherbyteHub/MAIN/refs/heads/main/Dantes"},
     ["93774312410805"] = {name = "Anime RNG TD", url = "https://raw.githubusercontent.com/ApelsinkaFr/ApelHub/refs/heads/main/ApelHub"},
     ["17323507436"] = {name = "Jump Stars", url = "https://raw.githubusercontent.com/Crazy0z/Crazy/refs/heads/main/JumpOnMyCockMobile.lua"},
     ["6938803436"] = {name = "Anime Dimensions Simulator", url = "https://raw.githubusercontent.com/Yanwanlnwza/SmellLikeHacker/main/Animedimensions.lua"},
