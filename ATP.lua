@@ -1,6 +1,8 @@
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
 local StarterGui = game:GetService("StarterGui")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
 local player = Players.LocalPlayer
 local playerGui = player:WaitForChild("PlayerGui")
 
@@ -16,14 +18,19 @@ end
 
 notify("DYHUB Loaded! for Anime Tower Piece")
 
+local g = game.workspace:FindFirstChild("glorytoJESUSmap")
+if g and g:FindFirstChild("Group") then
+    g.Group:Destroy()
+end
+
 local screenGui = Instance.new("ScreenGui")
 screenGui.Name = "DYHUB | Auto Farm | Anime Tower Piece"
 screenGui.ResetOnSpawn = false
 screenGui.Parent = playerGui
 
 local mainFrame = Instance.new("Frame")
-mainFrame.Size = UDim2.new(0, 300, 0, 150)
-mainFrame.Position = UDim2.new(0.5, -150, 0.5, -75)
+mainFrame.Size = UDim2.new(0, 320, 0, 400)
+mainFrame.Position = UDim2.new(0.5, -160, 0.5, -200)
 mainFrame.BackgroundColor3 = Color3.fromRGB(10, 10, 10)
 mainFrame.BackgroundTransparency = 0.2
 mainFrame.BorderSizePixel = 0
@@ -63,8 +70,8 @@ end)
 
 local teleportButton = Instance.new("TextButton", mainFrame)
 teleportButton.Size = UDim2.new(0.5, 0, 0, 40)
-teleportButton.Position = UDim2.new(0.25, 0, 0, 60)
-teleportButton.Text = "Auto Farm: Off"
+teleportButton.Position = UDim2.new(0.25, 0, 0, 50)
+teleportButton.Text = "Auto Win: Off"
 teleportButton.Font = Enum.Font.GothamBold
 teleportButton.TextScaled = true
 teleportButton.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -73,9 +80,7 @@ Instance.new("UICorner", teleportButton).CornerRadius = UDim.new(0, 10)
 local function getBlackRedColor(t)
     local freq = 2
     local red = math.floor((math.sin(freq * t) * 0.5 + 0.5) * 255)
-    local green = 0
-    local blue = 0
-    return Color3.fromRGB(red, green, blue)
+    return Color3.fromRGB(red, 0, 0)
 end
 
 RunService.RenderStepped:Connect(function()
@@ -83,9 +88,9 @@ RunService.RenderStepped:Connect(function()
 end)
 
 local textla = Instance.new("TextLabel", mainFrame)
-textla.Size = UDim2.new(1, -20, 0, 40)
-textla.Position = UDim2.new(0, 10, 0, 110)
-textla.Text = "⚠️ Cooldown Auto-Farm 3 sec."
+textla.Size = UDim2.new(1, -20, 0, 30)
+textla.Position = UDim2.new(0, 10, 0, 95)
+textla.Text = "⚠️ Auto-Win will teleport every 7 sec."
 textla.Font = Enum.Font.GothamBold
 textla.TextScaled = true
 textla.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -103,8 +108,8 @@ local looping = false
 
 teleportButton.MouseButton1Click:Connect(function()
     looping = not looping
-    teleportButton.Text = looping and "Auto Farm: On" or "Auto Farm: Off"
-    notify("Auto Farm: " .. (looping and "Enabled" or "Disabled"))
+    teleportButton.Text = looping and "Auto Win: On" or "Auto Win: Off"
+    notify("Auto Win: " .. (looping and "Enabled" or "Disabled"))
 
     if looping then
         task.spawn(function()
@@ -112,8 +117,73 @@ teleportButton.MouseButton1Click:Connect(function()
                 if player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
                     player.Character.HumanoidRootPart.CFrame = targetCFrame
                 end
-                task.wait(3.5)
+                task.wait(7)
             end
         end)
+    end
+end)
+
+local wearLabel = Instance.new("TextLabel", mainFrame)
+wearLabel.Size = UDim2.new(1, -20, 0, 25)
+wearLabel.Position = UDim2.new(0, 10, 0, 135)
+wearLabel.Text = "🎭 Choose character to wear:"
+wearLabel.Font = Enum.Font.GothamBold
+wearLabel.TextScaled = true
+wearLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+wearLabel.BackgroundTransparency = 1
+wearLabel.TextWrapped = true
+
+local selectedChar = nil
+
+local charList = {
+    "Shanks", "Shiryu", "Roger", "LuffyGear5", "Kaido", "BigMom",
+    "Zoro", "Usopp", "Nami", "Sanji", "Kidd", "Law",
+    "Luffy", "Blackbeard", "Chopper", "Yamato", "Fujitora", "Kuma", "Bartolomeo"
+}
+
+local scrollFrame = Instance.new("ScrollingFrame", mainFrame)
+scrollFrame.Size = UDim2.new(0.8, 0, 0, 140)
+scrollFrame.Position = UDim2.new(0.1, 0, 0, 165)
+scrollFrame.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+scrollFrame.ScrollBarThickness = 6
+scrollFrame.CanvasSize = UDim2.new(0, 0, 0, #charList * 30)
+Instance.new("UICorner", scrollFrame).CornerRadius = UDim.new(0, 8)
+
+local uiList = Instance.new("UIListLayout", scrollFrame)
+uiList.Padding = UDim.new(0, 4)
+
+for _, name in ipairs(charList) do
+    local btn = Instance.new("TextButton", scrollFrame)
+    btn.Size = UDim2.new(1, 0, 0, 30)
+    btn.Text = name
+    btn.Font = Enum.Font.Gotham
+    btn.TextScaled = true
+    btn.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+    btn.TextColor3 = Color3.fromRGB(255, 255, 255)
+    Instance.new("UICorner", btn).CornerRadius = UDim.new(0, 6)
+
+    btn.MouseButton1Click:Connect(function()
+        selectedChar = name
+        notify("Selected: "..name)
+    end)
+end
+
+local enterButton = Instance.new("TextButton", mainFrame)
+enterButton.Size = UDim2.new(0.4, 0, 0, 35)
+enterButton.Position = UDim2.new(0.3, 0, 0, 320)
+enterButton.Text = "Equip"
+enterButton.Font = Enum.Font.GothamBold
+enterButton.TextScaled = true
+enterButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+enterButton.BackgroundColor3 = Color3.fromRGB(0, 170, 0)
+Instance.new("UICorner", enterButton).CornerRadius = UDim.new(0, 8)
+
+enterButton.MouseButton1Click:Connect(function()
+    if selectedChar then
+        local args = { [1] = selectedChar }
+        ReplicatedStorage:WaitForChild("WearEvent"):FireServer(unpack(args))
+        notify("🎉 Equipped character: " .. selectedChar)
+    else
+        notify("⚠️ Please select a character first!")
     end
 end)
