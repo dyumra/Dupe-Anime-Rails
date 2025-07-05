@@ -12,6 +12,7 @@ local allowedGames = {
 }
 
 local AllowGameforPremium = {
+    ["93774312410805"] = {name = "Anime RNG TD", url = "https://raw.githubusercontent.com/ApelsinkaFr/ApelHub/refs/heads/main/ApelHub"},
     ["17323507436"] = {name = "Jump Stars", url = "https://raw.githubusercontent.com/Crazy0z/Crazy/refs/heads/main/JumpOnMyCockMobile.lua"},
     ["6938803436"] = {name = "Anime Dimensions Simulator", url = "https://raw.githubusercontent.com/Yanwanlnwza/SmellLikeHacker/main/Animedimensions.lua"},
     ["2788229376"] = {name = "Da Hood", url = "https://raw.githubusercontent.com/faisal222212/zeraya-stuff/refs/heads/main/zerayagui.lua"},
