@@ -90,7 +90,7 @@ end)
 local textla = Instance.new("TextLabel", mainFrame)
 textla.Size = UDim2.new(1, -20, 0, 30)
 textla.Position = UDim2.new(0, 10, 0, 95)
-textla.Text = "⚠️ Auto-Win will teleport every 7 sec."
+textla.Text = "⚠️ Auto-Win will teleport every 10 sec."
 textla.Font = Enum.Font.GothamBold
 textla.TextScaled = true
 textla.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -117,7 +117,7 @@ teleportButton.MouseButton1Click:Connect(function()
                 if player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
                     player.Character.HumanoidRootPart.CFrame = targetCFrame
                 end
-                task.wait(7)
+                task.wait(10)
             end
         end)
     end
