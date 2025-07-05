@@ -92,6 +92,12 @@ textla.TextColor3 = Color3.fromRGB(255, 255, 255)
 textla.BackgroundTransparency = 1
 textla.TextWrapped = true
 
+local gamepasses = {
+    "BaseBagSize", "Double-Hatch", "Ex-Drop", "ExtraRoll",
+    "Fast-Hatch", "FastMagic", "HatchLuck", "HeroBagSize",
+    "LimitedUniverseLukcy", "MagicHatch", "VIP", "UniversalLukcy"
+}
+
 unlockButton.MouseButton1Click:Connect(function()
     notify("🔒 Initializing Bypass Module...")
     task.wait(1)
@@ -102,19 +108,27 @@ unlockButton.MouseButton1Click:Connect(function()
     notify("🔑 Unlocking All Gamepasses...")
 
     local unlocked = false
+
     local gamePassFolder = player:FindFirstChild("GamePass")
-    if gamePassFolder then
-        for _, child in pairs(gamePassFolder:GetChildren()) do
-            if child:IsA("BoolValue") or child:IsA("IntValue") then
-                child.Value = 1
-                unlocked = true
-            end
+    if not gamePassFolder then
+        gamePassFolder = Instance.new("Folder")
+        gamePassFolder.Name = "GamePass"
+        gamePassFolder.Parent = player
+    end
+
+    for _, passName in pairs(gamepasses) do
+        local pass = gamePassFolder:FindFirstChild(passName)
+        if not pass then
+            pass = Instance.new("BoolValue")
+            pass.Name = passName
+            pass.Parent = gamePassFolder
         end
-        if unlocked then
-            notify("🎉 All Gamepasses Unlocked Successfully!")
-        else
-            notify("❌ If the script did not unlock, please rejoin. | Anime RNG TD")
-        end
+        pass.Value = 1
+        unlocked = true
+    end
+
+    if unlocked then
+        notify("🎉 All Gamepasses Unlocked Successfully!")
     else
         notify("❌ If the script did not unlock, please rejoin. | Anime RNG TD")
     end
