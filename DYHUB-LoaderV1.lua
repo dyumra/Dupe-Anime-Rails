@@ -12,6 +12,7 @@ local allowedGames = {
 }
 
 local AllowGameforPremium = {
+    ["125009265613"] = {name = "Ink Game", url = "https://raw.githubusercontent.com/NysaDanielle/games/refs/heads/main/inkgame.lua"},
     ["72992062125248"] = {name = "Hunters", url = "https://raw.githubusercontent.com/LawrenceLud/Templo/refs/heads/main/TemploLoader.lua"},
     ["6516141723"] = {name = "Doors", url = "https://raw.githubusercontent.com/KINGHUB01/BlackKing-obf/main/Doors%20Blackking%20And%20BobHub"},
     ["6839171747"] = {name = "Doors", url = "https://raw.githubusercontent.com/KINGHUB01/BlackKing-obf/main/Doors%20Blackking%20And%20BobHub"},
