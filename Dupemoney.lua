@@ -120,9 +120,9 @@ enterButton.MouseButton1Click:Connect(function()
         local args = {
             [1] = "Wins",
             [2] = input,
-            [3] = "ARISE"
+            [3] = "SABER"
         }
-        ReplicatedStorage:WaitForChild("redeemedCode"):FireServer(unpack(args))
+        game:GetService("ReplicatedStorage"):WaitForChild("CodeEvent"):FireServer(unpack(args))
         notify("✅ Dupe Cash: "..input)
     else
         notify("❌ Invalid amount! Please enter 100 ~ 10,000.")
@@ -138,9 +138,9 @@ enterButton2.MouseButton1Click:Connect(function()
         local args = {
             [1] = "Wins",
             [2] = perFire,
-            [3] = "ARISE"
+            [3] = "SABER"
         }
-        ReplicatedStorage:WaitForChild("redeemedCode"):FireServer(unpack(args))
+        game:GetService("ReplicatedStorage"):WaitForChild("CodeEvent"):FireServer(unpack(args))
         wait(0.1)
     end
     notify("✅ Dupe Cash: Completed 999,999,999!")
