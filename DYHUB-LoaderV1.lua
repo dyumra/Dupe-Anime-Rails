@@ -46,7 +46,7 @@ local premiumUsers = {
     ["YMH012"] = {Tag = "idkkkkk0813", Time = "Times: Lifetime"},
     ["Donot123haha"] = {Tag = "idkkkkk0813", Time = "Times: Lifetime"},
     -- Freeium for emoji
-    ["sSvntfNiwg"] = {Tag = "tuankiet5596", Time = "Days: 1 (24h)"},
+    ["sSVntfNiwg"] = {Tag = "tuankiet5596", Time = "Days: 1 (24h)"},
     ["Name2"] = {Tag = "Name", Time = "Days: 1 (24h)"},
     ["Name3"] = {Tag = "Name", Time = "Days: 1 (24h)"},
 }
