@@ -275,7 +275,7 @@ function loadScript()
         btnDupeMCA.Size = UDim2.new(1, -40, 0, 50)
         btnDupeMCA.Position = UDim2.new(0, 20, 0, 70)
         btnDupeMCA.BackgroundColor3 = Color3.fromRGB(85, 255, 127)
-        btnDupeMCA.Text = "Dupe MCA"
+        btnDupeMCA.Text = "[Update] Dupe MCA"
         btnDupeMCA.TextColor3 = Color3.fromRGB(20, 20, 20)
         btnDupeMCA.Font = Enum.Font.GothamBold
         btnDupeMCA.TextSize = 22
@@ -292,7 +292,7 @@ function loadScript()
         btnDupeCash.Size = UDim2.new(1, -40, 0, 50)
         btnDupeCash.Position = UDim2.new(0, 20, 0, 130)
         btnDupeCash.BackgroundColor3 = Color3.fromRGB(85, 255, 127)
-        btnDupeCash.Text = "Dupe Cash"
+        btnDupeCash.Text = "[Down] Dupe Cash"
         btnDupeCash.TextColor3 = Color3.fromRGB(20, 20, 20)
         btnDupeCash.Font = Enum.Font.GothamBold
         btnDupeCash.TextSize = 22
