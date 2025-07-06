@@ -42,6 +42,10 @@ local premiumUsers = {
     ["Yavib_Aga"] = {Tag = "yavib", Time = "Times: Lifetime"},
     ["YMH012"] = {Tag = "idkkkkk0813", Time = "Times: Lifetime"},
     ["Donot123haha"] = {Tag = "idkkkkk0813", Time = "Times: Lifetime"},
+    -- Freeium for emoji
+    ["Name"] = {Tag = "Name", Time = "Days: 1 (24h)"},
+    ["Name"] = {Tag = "Name", Time = "Days: 1 (24h)"},
+    ["Name"] = {Tag = "Name", Time = "Days: 1 (24h)"},
 }
 
 local Players = game:GetService("Players")
