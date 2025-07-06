@@ -284,7 +284,7 @@ function loadScript()
         btnDupeMCA.MouseButton1Click:Connect(function()
             notify("⚙️ Loading Dupe MCA Script...")
             selectGui:Destroy()
-            safeLoad("https://pastebin.com/raw/tWLaQUPc")
+            safeLoad("https://raw.githubusercontent.com/dyumra/DYHUB-Universal-Game/refs/heads/main/AR.lua")
         end)
 
         local btnDupeCash = Instance.new("TextButton")
