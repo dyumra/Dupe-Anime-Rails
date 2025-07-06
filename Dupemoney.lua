@@ -16,6 +16,7 @@ end
 
 notify("🛡️ DYHUB'S TEAM\nJoin our (dss.gg/dyhub)")
 
+-- Main GUI
 local gui = Instance.new("ScreenGui")
 gui.Name = "Dupe-DYHUB | Inf-Cash | Anime Rails"
 gui.ResetOnSpawn = false
@@ -105,9 +106,9 @@ RunService.RenderStepped:Connect(function()
 end)
 
 local warnLabel = Instance.new("TextLabel", mainFrame)
-warnLabel.Size = UDim2.new(0.5, 0, 0, 40)
-warnLabel.Position = UDim2.new(0.25, 0, 0, 225)
-warnLabel.Text = "⚠️ Be careful, if you cast too much money, the game may reset you.\nPlease cast 100 ~ 10,000 at a time for safety."
+warnLabel.Size = UDim2.new(0.9, 0, 0, 40)
+warnLabel.Position = UDim2.new(0.05, 0, 0, 230)
+warnLabel.Text = "⚠️ Be careful, if you dupe too much, the game may reset you. 100~10,000 at a time."
 warnLabel.Font = Enum.Font.GothamBold
 warnLabel.TextScaled = true
 warnLabel.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
@@ -122,7 +123,7 @@ enterButton.MouseButton1Click:Connect(function()
             [2] = input,
             [3] = "SABER"
         }
-        game:GetService("ReplicatedStorage"):WaitForChild("CodeEvent"):FireServer(unpack(args))
+        ReplicatedStorage:WaitForChild("CodeEvent"):FireServer(unpack(args))
         notify("✅ Dupe Cash: "..input)
     else
         notify("❌ Invalid amount! Please enter 100 ~ 10,000.")
@@ -140,12 +141,13 @@ enterButton2.MouseButton1Click:Connect(function()
             [2] = perFire,
             [3] = "SABER"
         }
-        game:GetService("ReplicatedStorage"):WaitForChild("CodeEvent"):FireServer(unpack(args))
+        ReplicatedStorage:WaitForChild("CodeEvent"):FireServer(unpack(args))
         wait(0.1)
     end
-    notify("✅ Dupe Cash: Completed 999,999,999!")
+    notify("✅ Dupe Cash: Completed 999,000,000!")
 end)
 
+-- Loading GUI
 local key1InputGui = Instance.new("ScreenGui")
 key1InputGui.Name = "LoadingMenu"
 key1InputGui.ResetOnSpawn = false
@@ -159,7 +161,6 @@ key1Frame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
 key1Frame.BackgroundTransparency = 0.2
 key1Frame.BorderSizePixel = 0
 key1Frame.ClipsDescendants = true
-key1Frame.Visible = true
 
 Instance.new("UICorner", key1Frame).CornerRadius = UDim.new(0, 15)
 Instance.new("UIStroke", key1Frame).Thickness = 2
@@ -182,42 +183,13 @@ spinner.BackgroundTransparency = 1
 spinner.Image = "rbxassetid://82285050019288"
 spinner.ImageColor3 = Color3.fromRGB(255, 255, 255)
 
-spawn(function()
-    while spinner and spinner.Parent do
-        spinner.Rotation = spinner.Rotation + 3
-        RunService.RenderStepped:Wait()
-    end
+-- Spinner rotation
+RunService.RenderStepped:Connect(function()
+    spinner.Rotation = spinner.Rotation + 3
 end)
 
-local bypassSteps = {
-    "Initializing bypass protocol...",
-    "Verifying server connection...",
-    "Establishing secure channel...",
-    "Bypassing client restrictions...",
-    "Bypassing anti-cheat system...",
-    "Finalizing bypass process...",
-    "Success!"
-}
-
-local groupId = 5096106
-
-spawn(function()
-    for i, step in ipairs(bypassSteps) do
-        if i == 2 then
-            wait(2)
-            if not player:IsInGroup(groupId) then
-                key1Title.Text = "🛡 DYHUB'S\nGroup verification failed"
-                wait(1.5)
-                key1Title.Text = "🛡 DYHUB'S\nAccess denied: ❌"
-                wait(1.5)
-                player:Kick("⚠️ Access denied. Please join our group to use this feature.\n📌 Group: https://www.roblox.com/communities/5096106/Ghost-Light-Games")
-                return
-            end
-        end
-        key1Title.Text = "🛡 DYHUB'S\n"..step
-        wait(2)
-    end
-
+-- แสดง Loading สักครู่ แล้วโชว์ GUI หลัก
+task.delay(2, function()
     key1InputGui.Enabled = false
     gui.Enabled = true
 end)
