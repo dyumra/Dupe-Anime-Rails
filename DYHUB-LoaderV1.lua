@@ -294,7 +294,7 @@ function loadScript()
         btnDupeCash.Size = UDim2.new(1, -40, 0, 50)
         btnDupeCash.Position = UDim2.new(0, 20, 0, 130)
         btnDupeCash.BackgroundColor3 = Color3.fromRGB(85, 255, 127)
-        btnDupeCash.Text = "[Down] Dupe Cash"
+        btnDupeCash.Text = "[Update] Dupe Cash"
         btnDupeCash.TextColor3 = Color3.fromRGB(20, 20, 20)
         btnDupeCash.Font = Enum.Font.GothamBold
         btnDupeCash.TextSize = 22
@@ -303,7 +303,7 @@ function loadScript()
         btnDupeCash.MouseButton1Click:Connect(function()
             notify("⚙️ Loading Dupe Cash Script...")
             selectGui:Destroy()
-            safeLoad("https://pastebin.com/raw/Cm328YQH")
+            safeLoad("https://raw.githubusercontent.com/dyumra/Dupe-Anime-Rails/refs/heads/main/Dupemoney.lua")
         end)
     else
         if gameData.url then
