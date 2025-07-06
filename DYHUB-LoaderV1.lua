@@ -40,6 +40,7 @@ local premiumUsers = {
     -- Thank for support 🙏 
     ["kagefym"] = {Tag = "itspect", Time = "Times: Lifetime"},
     ["Yavib_Aga"] = {Tag = "yavib", Time = "Times: Lifetime"},
+    ["Donot123haha"] = {Tag = "idkkkkk0813", Time = "Times: Lifetime"},
 }
 
 local Players = game:GetService("Players")
