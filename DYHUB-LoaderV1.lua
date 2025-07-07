@@ -14,6 +14,7 @@ local allowedGames = {
 }
 
 local AllowGameforPremium = {
+    ["3101667897"] = {name = "Legends Of Speed", url = "https://raw.githubusercontent.com/dyumra/DYHUB-Universal-Game/refs/heads/main/LOS.lua"},
     ["105141077088559"] = {name = "Anime RaiIs in-Game", url = "https://raw.githubusercontent.com/dyumra/DYHUB-Universal-Game/refs/heads/main/ARAW.lua"},
     ["125009265613167"] = {name = "Ink Game", url = "https://raw.githubusercontent.com/NysaDanielle/games/refs/heads/main/inkgame.lua"},
     ["72992062125248"] = {name = "Hunters", url = "https://raw.githubusercontent.com/LawrenceLud/Templo/refs/heads/main/TemploLoader.lua"},
