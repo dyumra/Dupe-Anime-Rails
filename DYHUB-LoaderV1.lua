@@ -48,11 +48,11 @@ local premiumUsers = {
     ["kagefym"] = {Tag = "itspect", Time = "Times: Lifetime"},
     ["Yavib_Aga"] = {Tag = "yavib", Time = "Times: Lifetime"},
     ["YMH012"] = {Tag = "idkkkkk0813", Time = "Times: Lifetime"},
-    ["Donot123haha"] = {Tag = "idkkkkk0813", Time = "Times: Lifetime"},
+    ["ymh_is666"] = {Tag = "idkkkkk0813", Time = "Times: Lifetime"},
     -- Freeium for emoji
-    ["sSVntfNiwg"] = {Tag = "tuankiet5596", Time = "Days: 1 (24h)"},
-    ["robot_pense"] = {Tag = "kuzey_5511", Time = "Days: 1 (24h)"},
-    ["Sword1485id30"] = {Tag = "noob08014", Time = "Days: 1 (24h)"},
+    ["2"] = {Tag = "2", Time = "Days: 1 (24h)"},
+    ["1"] = {Tag = "1", Time = "Days: 1 (24h)"},
+    ["0"] = {Tag = "0", Time = "Days: 1 (24h)"},
 }
 
 local Players = game:GetService("Players")
