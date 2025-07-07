@@ -3,6 +3,7 @@ local allowedGames = {
     ["3571215756"] = {name = "House Tycoon", url = "https://raw.githubusercontent.com/dyumra/DYHUB-Universal-Game/refs/heads/main/HT.lua"},
     ["126803389599637"] = {name = "Anime Tower Piece", url = "https://raw.githubusercontent.com/dyumra/Dupe-Anime-Rails/refs/heads/main/ATP.lua"},
     ["286090429"] = {name = "Arsenal", url = "https://pastebin.com/raw/NeCbQB58"},
+    ["221718525"] = {name = "Ninja Tycoon", url = "https://raw.githubusercontent.com/dyumra/DYHUB-Universal-Game/refs/heads/main/NT.lua"},
     ["74392180661358"] = {name = "Grow a Mine", url = "https://raw.githubusercontent.com/dyumra/DYHUB-Universal-Game/refs/heads/main/GAM.lua"},
     ["113809264674979"] = {name = "Steal a Sword", url = "https://raw.githubusercontent.com/dyumra/DYHUB-Universal-Game/refs/heads/main/SAS.lua"},
     ["14940775218"] = {name = "No-Scope Arcade (2021)", url = "https://pastebin.com/raw/0xcSxSW4"},
