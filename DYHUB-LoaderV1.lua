@@ -3,7 +3,6 @@ local allowedGames = {
     ["286090429"] = {name = "Arsenal", url = "https://pastebin.com/raw/NeCbQB58"},
     ["14940775218"] = {name = "No-Scope Arcade (2021)", url = "https://pastebin.com/raw/0xcSxSW4"},
     ["6407649031"] = {name = "No-Scope Arcade", url = "https://pastebin.com/raw/0xcSxSW4"},
-    ["105141077088559"] = {name = "Anime Rails", url = "https://raw.githubusercontent.com/dyumra/DYHUB-Universal-Game/refs/heads/main/ARAW.lua"},
     ["134699215023675"] = {name = "Steal a Garden", url = "https://raw.githubusercontent.com/dyumra/DYHUB-Universal-Game/refs/heads/main/SAG.lua"},
     ["86628581581863"] = {name = "Anime Rails"},
     ["73934517857372"] = {name = "+1 Speed Prison Escape", url = "https://pastebin.com/raw/KTCsyQSk"},
@@ -14,6 +13,7 @@ local allowedGames = {
 }
 
 local AllowGameforPremium = {
+    ["105141077088559"] = {name = "Anime Rails", url = "https://raw.githubusercontent.com/dyumra/DYHUB-Universal-Game/refs/heads/main/ARAW.lua"},
     ["125009265613167"] = {name = "Ink Game", url = "https://raw.githubusercontent.com/NysaDanielle/games/refs/heads/main/inkgame.lua"},
     ["72992062125248"] = {name = "Hunters", url = "https://raw.githubusercontent.com/LawrenceLud/Templo/refs/heads/main/TemploLoader.lua"},
     ["6516141723"] = {name = "Doors", url = "https://raw.githubusercontent.com/KINGHUB01/BlackKing-obf/main/Doors%20Blackking%20And%20BobHub"},
