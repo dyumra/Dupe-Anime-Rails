@@ -81,7 +81,7 @@ end)
 local inputBox = Instance.new("TextBox", mainFrame)
 inputBox.Size = UDim2.new(0.8, 0, 0, 40)
 inputBox.Position = UDim2.new(0.1, 0, 0, 60)
-inputBox.PlaceholderText = "Enter amount (100 ~ 10,000)"
+inputBox.PlaceholderText = "Enter amount (100 ~ 10000)"
 inputBox.Text = ""
 inputBox.Font = Enum.Font.Gotham
 inputBox.TextScaled = true
@@ -123,7 +123,7 @@ end)
 local warnLabel = Instance.new("TextLabel", mainFrame)
 warnLabel.Size = UDim2.new(0.9, 0, 0, 40)
 warnLabel.Position = UDim2.new(0.05, 0, 0, 230)
-warnLabel.Text = "⚠️ Be careful, if you dupe too much, the game may reset you. 100~10,000 at a time."
+warnLabel.Text = "⚠️ Be careful, if you dupe too much, the game may reset you. 100~10000 at a time."
 warnLabel.Font = Enum.Font.GothamBold
 warnLabel.TextScaled = true
 warnLabel.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
