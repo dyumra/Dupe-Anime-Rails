@@ -200,7 +200,7 @@ local function createKeyGui()
     local getKeyBtn = Instance.new("TextButton", frame)
     getKeyBtn.Size = UDim2.new(1, -40, 0, 40)
     getKeyBtn.Position = UDim2.new(0, 20, 0, 165)
-    getKeyBtn.Text = "Get Key"
+    getKeyBtn.Text = "(REAL) Get Key"
     getKeyBtn.BackgroundColor3 = Color3.fromRGB(70, 130, 255)
     getKeyBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
     getKeyBtn.Font = Enum.Font.GothamBold
@@ -232,8 +232,8 @@ local function createKeyGui()
 
     getKeyBtn.MouseButton1Click:Connect(function()
         clickTween(getKeyBtn)
-        pcall(function() setclipboard("https://pastebin.com/raw/iiQREtkr") end)
-        notify("🔗 Link copied to clipboard!")
+        pcall(function() setclipboard("DYHUBTHEBEST") end)
+        notify("🔑 Key copied to clipboard!")
     end)
 
     return keyGui
