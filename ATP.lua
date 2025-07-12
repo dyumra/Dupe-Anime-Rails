@@ -18,9 +18,20 @@ end
 
 notify("DYHUB Loaded! for Anime Tower Piece")
 
-local g = game.workspace:FindFirstChild("glorytoJESUSmap")
+local g = workspace:FindFirstChild("glorytoJESUSmap")
+local w1 = workspace:FindFirstChild("wait1")
+local w2 = workspace:FindFirstChild("wait2")
+local w3 = workspace:FindFirstChild("wait3")
+local w4 = workspace:FindFirstChild("wait4")
+local w5 = workspace:FindFirstChild("wait5")
+
 if g and g:FindFirstChild("Group") then
     g.Group:Destroy()
+    if w1 then w1:Destroy() end
+    if w2 then w2:Destroy() end
+    if w3 then w3:Destroy() end
+    if w4 then w4:Destroy() end
+    if w5 then w5:Destroy() end
 end
 
 local screenGui = Instance.new("ScreenGui")
@@ -29,8 +40,8 @@ screenGui.ResetOnSpawn = false
 screenGui.Parent = playerGui
 
 local mainFrame = Instance.new("Frame")
-mainFrame.Size = UDim2.new(0, 320, 0, 400)
-mainFrame.Position = UDim2.new(0.5, -160, 0.5, -200)
+mainFrame.Size = UDim2.new(0, 320, 0, 420)
+mainFrame.Position = UDim2.new(0.5, -160, 0.5, -250)
 mainFrame.BackgroundColor3 = Color3.fromRGB(10, 10, 10)
 mainFrame.BackgroundTransparency = 0.2
 mainFrame.BorderSizePixel = 0
@@ -115,7 +126,12 @@ teleportButton.MouseButton1Click:Connect(function()
         task.spawn(function()
             while looping do
                 if player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
-                    player.Character.HumanoidRootPart.CFrame = targetCFrame
+                    local rootPart = player.Character.HumanoidRootPart
+                    -- ยกตัว Y +50 ก่อน
+                    rootPart.CFrame = CFrame.new(rootPart.Position + Vector3.new(0, 50, 0))
+                    task.wait(0.2)
+                    -- แล้ววาร์ปไปที่เป้าหมาย
+                    rootPart.CFrame = targetCFrame
                 end
                 task.wait(10)
             end
@@ -139,7 +155,7 @@ local charList = {
     "Shanks", "Shiryu", "Roger", "LuffyGear5", "Kaido", "BigMom",
     "Zoro", "Usopp", "Nami", "Sanji", "Kidd", "Law",
     "Luffy", "Blackbeard", "Chopper", "Yamato", "Fujitora", "Kuma", "Bartolomeo",
-    "Naruto", "Vegeta", "Kizaru", 
+    "Naruto", "Vegeta", "Kizaru", "Gojo",
 }
 
 local scrollFrame = Instance.new("ScrollingFrame", mainFrame)
@@ -171,7 +187,7 @@ end
 
 local enterButton = Instance.new("TextButton", mainFrame)
 enterButton.Size = UDim2.new(0.4, 0, 0, 35)
-enterButton.Position = UDim2.new(0.3, 0, 0, 320)
+enterButton.Position = UDim2.new(0.1, 0, 0, 320)
 enterButton.Text = "Equip"
 enterButton.Font = Enum.Font.GothamBold
 enterButton.TextScaled = true
@@ -181,10 +197,60 @@ Instance.new("UICorner", enterButton).CornerRadius = UDim.new(0, 8)
 
 enterButton.MouseButton1Click:Connect(function()
     if selectedChar then
-        local args = { [1] = selectedChar }
-        ReplicatedStorage:WaitForChild("WearEvent"):FireServer(unpack(args))
+        ReplicatedStorage:WaitForChild("WearEvent"):FireServer(selectedChar)
         notify("🎉 Equipped character: " .. selectedChar)
     else
         notify("⚠️ Please select a character first!")
+    end
+end)
+
+local unlockButton = Instance.new("TextButton", mainFrame)
+unlockButton.Size = UDim2.new(0.4, 0, 0, 35)
+unlockButton.Position = UDim2.new(0.52, 0, 0, 320)
+unlockButton.Text = "Unlock All"
+unlockButton.Font = Enum.Font.GothamBold
+unlockButton.TextScaled = true
+unlockButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+unlockButton.BackgroundColor3 = Color3.fromRGB(170, 0, 0)
+Instance.new("UICorner", unlockButton).CornerRadius = UDim.new(0, 8)
+
+unlockButton.MouseButton1Click:Connect(function()
+    local statFolder = player:FindFirstChild("Stat")
+    if statFolder then
+        for _, name in ipairs(charList) do
+            local stat = statFolder:FindFirstChild(name)
+            if stat and stat:IsA("NumberValue") then
+                stat.Value = 1
+            end
+        end
+        notify("✅ All characters unlocked! (Press Everytime)")
+    else
+        notify("⚠️ Stat folder not found!")
+    end
+end)
+
+local unlockEmoteButton = Instance.new("TextButton", mainFrame)
+unlockEmoteButton.Size = UDim2.new(0.82, 0, 0, 35)
+unlockEmoteButton.Position = UDim2.new(0.09, 0, 0, 365)
+unlockEmoteButton.Text = "Unlock All (Emote)"
+unlockEmoteButton.Font = Enum.Font.GothamBold
+unlockEmoteButton.TextScaled = true
+unlockEmoteButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+unlockEmoteButton.BackgroundColor3 = Color3.fromRGB(0, 0, 170)
+Instance.new("UICorner", unlockEmoteButton).CornerRadius = UDim.new(0, 8)
+
+unlockEmoteButton.MouseButton1Click:Connect(function()
+    local statFolder = player:FindFirstChild("Stat")
+    if statFolder then
+        local emotes = {"Dance", "Dance2", "Dance3", "Dance4", "Drink"}
+        for _, name in ipairs(emotes) do
+            local stat = statFolder:FindFirstChild(name)
+            if stat and stat:IsA("NumberValue") then
+                stat.Value = 1
+            end
+        end
+        notify("✅ All emotes unlocked!")
+    else
+        notify("⚠️ Stat folder not found!")
     end
 end)
