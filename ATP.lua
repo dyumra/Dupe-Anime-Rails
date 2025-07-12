@@ -98,10 +98,10 @@ textla.BackgroundTransparency = 1
 textla.TextWrapped = true
 
 local targetCFrame = CFrame.new(
-    -353.43457, 409.376617, 24.4039631,
-    -1.1920929e-07, 0, -1.00000012,
+    -436.264374, 412.295868, 25.8378544,
+    -1.1920929e-07, 0, 1.00000012,
     0, 1, 0,
-    1.00000012, 0, -1.1920929e-07
+    -1.00000012, 0, -1.1920929e-07
 )
 
 local looping = false
@@ -138,7 +138,8 @@ local selectedChar = nil
 local charList = {
     "Shanks", "Shiryu", "Roger", "LuffyGear5", "Kaido", "BigMom",
     "Zoro", "Usopp", "Nami", "Sanji", "Kidd", "Law",
-    "Luffy", "Blackbeard", "Chopper", "Yamato", "Fujitora", "Kuma", "Bartolomeo"
+    "Luffy", "Blackbeard", "Chopper", "Yamato", "Fujitora", "Kuma", "Bartolomeo",
+    "Naruto", "Vegeta", "Kizaru", 
 }
 
 local scrollFrame = Instance.new("ScrollingFrame", mainFrame)
