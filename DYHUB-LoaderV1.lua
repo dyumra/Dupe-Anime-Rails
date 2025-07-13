@@ -3,6 +3,7 @@ local allowedGames = {
     ["3571215756"] = {name = "House Tycoon", url = "https://raw.githubusercontent.com/dyumra/DYHUB-Universal-Game/refs/heads/main/HT.lua"},
     ["126803389599637"] = {name = "Anime Tower Piece", url = "https://raw.githubusercontent.com/dyumra/Dupe-Anime-Rails/refs/heads/main/ATP.lua"},
     ["286090429"] = {name = "Arsenal", url = "https://pastebin.com/raw/NeCbQB58"},
+    ["103661214879860"] = {name = "ABILITIES TOWER", url = "https://raw.githubusercontent.com/dyumra/DYHUB-Universal-Game/refs/heads/main/AssT.lua"},
     ["89343390950953"] = {name = "My Singing Brainrot [DYHUB X TORA]", url = "https://raw.githubusercontent.com/gumanba/Scripts/main/MySingingBrainrot"},
     ["89343390950953"] = {name = "My Singing Brainrot [Faster]", url = "https://raw.githubusercontent.com/dyumra/DYHUB-Universal-Game/refs/heads/main/MySingingB.lua"},
     ["80932898798323"] = {name = "Cross Piece", url = "https://raw.githubusercontent.com/dyumra/DYHUB-Universal-Game/refs/heads/main/CrossPieceCollab.lua"},
