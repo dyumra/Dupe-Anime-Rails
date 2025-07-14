@@ -33,6 +33,7 @@ local AllowGameforPremium = {
     ["105141077088559"] = {name = "Anime RaiIs in-Game", url = "https://raw.githubusercontent.com/dyumra/DYHUB-Universal-Game/refs/heads/main/ARAW.lua"},
     ["72992062125248"] = {name = "Hunters", url = "https://raw.githubusercontent.com/LawrenceLud/Templo/refs/heads/main/TemploLoader.lua"},
     ["10260193230"] = {name = "Meme Sea", url = "https://gitlab.com/Lmy77/menu/-/raw/main/infinityx"},
+    ["18687417158"] = {name = "Forsaken", url = "https://raw.githubusercontent.com/dyumra/DYHUB-Universal-Game/refs/heads/main/Fosaken.lua"},
     ["6516141723"] = {name = "Doors", url = "https://raw.githubusercontent.com/KINGHUB01/BlackKing-obf/main/Doors%20Blackking%20And%20BobHub"},
     ["6839171747"] = {name = "Doors", url = "https://raw.githubusercontent.com/KINGHUB01/BlackKing-obf/main/Doors%20Blackking%20And%20BobHub"},
     ["87039211657390"] = {name = "Arise Crossover", url = "https://raw.githubusercontent.com/EtherbyteHub/MAIN/refs/heads/main/Dantes"},
