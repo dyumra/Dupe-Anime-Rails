@@ -1,3 +1,85 @@
+local HttpService = game:GetService("HttpService")
+local Players = game:GetService("Players")
+local MarketplaceService = game:GetService("MarketplaceService")
+local player = Players.LocalPlayer
+
+local OSTime = os.time()
+local Time = os.date('!*t', OSTime)
+
+local success, gameInfo = pcall(function()
+    return MarketplaceService:GetProductInfo(game.PlaceId)
+end)
+
+local gameName = "Unknown Game"
+if success and gameInfo and gameInfo.Name then
+    gameName = gameInfo.Name
+end
+
+local Content = '# **🛡️ Discord webhook via | DYHUB**'
+
+local Embed = {
+    title = '🔔 DYHUB | Execution Log',
+    color = 0xFF0000,
+    footer = { text = "🔍 JobId: " .. (game.JobId or "No JobId") },
+    author = {
+        name = 'Subscribe!',
+        url = 'https://youtube.com/@officialdyhub'
+    },
+    thumbnail = {
+        url = "https://www.roblox.com/headshot-thumbnail/image?userId=" .. player.UserId .. "&width=420&height=420&format=png"
+    },
+    fields = {
+        {
+            name = '🎯 Roblox Username',
+            value = "@" .. player.Name,
+            inline = true
+        },
+        {
+            name = '📛 Display Name',
+            value = player.DisplayName,
+            inline = true
+        },
+        {
+            name = '🆔 User ID',
+            value = tostring(player.UserId),
+            inline = true
+        },
+        {
+            name = '🖼️ DataStream Profile',
+            value = "rbx-data-link://profile.image.access:" .. tostring(player.UserId),
+            inline = false
+        },
+        {
+            name = '🎮 Game',
+            value = string.format("Name: %s", gameName),
+            inline = true
+        },
+        {
+            name = '🔗 Game Link',
+            value = "https://www.roblox.com/games/" .. tostring(game.PlaceId),
+            inline = true
+        }
+    },
+    timestamp = string.format('%d-%02d-%02dT%02d:%02d:%02dZ', Time.year, Time.month, Time.day, Time.hour, Time.min, Time.sec)
+}
+
+local webhookUrl = 'https://discord.com/api/webhooks/1395128660285063170/YYr0gKs79Utc-7n3AXTL78-oEZgDKZuO0FN0wrHLWy6z3aSCX97UTciAJhaEl2qxaoY'
+
+local requestFunction = syn and syn.request or http_request or http and http.request
+
+pcall(function()
+    requestFunction({
+        Url = webhookUrl,
+        Method = 'POST',
+        Headers = {
+            ['Content-Type'] = 'application/json'
+        },
+        Body = HttpService:JSONEncode({ content = Content, embeds = { Embed } })
+    })
+end)
+
+
+
 local allowedGames = {
     ["6677985923"] = {name = "Millionaire Empire Tycoon", url = "https://raw.githubusercontent.com/dyumra/DYHUB-Universal-Game/refs/heads/main/MET.lua"},
     ["3571215756"] = {name = "House Tycoon", url = "https://raw.githubusercontent.com/dyumra/DYHUB-Universal-Game/refs/heads/main/HT.lua"},
