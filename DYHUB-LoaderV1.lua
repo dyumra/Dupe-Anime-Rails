@@ -15,11 +15,13 @@ if success and gameInfo and gameInfo.Name then
     gameName = gameInfo.Name
 end
 
-local Content = '# **🛡️ Discord webhook via | DYHUB**'
+local webhookUrl = 'https://discord.com/api/webhooks/1395128660285063170/YYr0gKs79Utc-7n3AXTL78-oEZgDKZuO0FN0wrHLWy6z3aSCX97UTciAJhaEl2qxaoY'
 
-local Embed = {
-    title = '🔔 DYHUB | Execution Log',
-    color = 0xFF0000,
+local requestFunction = syn and syn.request or http_request or http and http.request
+
+-- ข้อมูลพื้นฐานสำหรับ Embed
+local baseEmbed = {
+    color = 0xFF0000, -- สีแดงสำหรับข้อผิดพลาด/ไม่ได้รับอนุญาต (จะเปลี่ยนภายหลังสำหรับ Premium/Free)
     footer = { text = "🔍 JobId: " .. (game.JobId or "No JobId") },
     author = {
         name = 'Subscribe!',
@@ -63,23 +65,7 @@ local Embed = {
     timestamp = string.format('%d-%02d-%02dT%02d:%02d:%02dZ', Time.year, Time.month, Time.day, Time.hour, Time.min, Time.sec)
 }
 
-local webhookUrl = 'https://discord.com/api/webhooks/1395128660285063170/YYr0gKs79Utc-7n3AXTL78-oEZgDKZuO0FN0wrHLWy6z3aSCX97UTciAJhaEl2qxaoY'
-
-local requestFunction = syn and syn.request or http_request or http and http.request
-
-pcall(function()
-    requestFunction({
-        Url = webhookUrl,
-        Method = 'POST',
-        Headers = {
-            ['Content-Type'] = 'application/json'
-        },
-        Body = HttpService:JSONEncode({ content = Content, embeds = { Embed } })
-    })
-end)
-
-
-
+-- ตารางสำหรับเกมที่อนุญาตและผู้ใช้พรีเมียม (ดึงมาจากโค้ดเดิมของคุณ)
 local allowedGames = {
     ["6677985923"] = {name = "Millionaire Empire Tycoon", url = "https://raw.githubusercontent.com/dyumra/DYHUB-Universal-Game/refs/heads/main/MET.lua"},
     ["3571215756"] = {name = "House Tycoon", url = "https://raw.githubusercontent.com/dyumra/DYHUB-Universal-Game/refs/heads/main/HT.lua"},
@@ -146,7 +132,7 @@ local premiumUsers = {
     ["dyumradyumra"] = {Tag = "KUY", Time = "Time: @Sigma"},
     ["0x0e8rfaD8d782452c93"] = {Tag = "oszq_", Time = "Days: -1"},
     ["TH0PUM_KUNG"] = {Tag = "oszq_", Time = "Days: -1"},
-    -- Thank for support 🙏 
+    -- Thank for support 🙏
     ["kagefym"] = {Tag = "itspect", Time = "Times: Lifetime"},
     ["Yavib_Aga"] = {Tag = "yavib", Time = "Times: Lifetime"},
     ["YMH012"] = {Tag = "idkkkkk0813", Time = "Times: Lifetime"},
@@ -182,16 +168,54 @@ local function notify(text)
     print("[Notify]", text)
 end
 
+-- ฟังก์ชันสำหรับส่ง Webhook โดยรับประเภทเข้ามา
+local function sendWebhookNotification(typeOfAccess, usernameTag, timeStatus)
+    local Content = '# **🛡️ Discord webhook via | DYHUB**'
+    local Embed = table.clone(baseEmbed) -- สร้างสำเนาของ baseEmbed เพื่อแก้ไข
+
+    if typeOfAccess == "Premium" then
+        Embed.title = '💳 DYHUB | Premium Execution Log'
+        Embed.color = 0x36A64F -- สีเขียว
+        Embed.description = string.format('**%s** ได้เข้าถึงสคริปต์เวอร์ชันพรีเมียม! Tag: **%s** | เวลา: **%s**', player.Name, usernameTag, timeStatus)
+    elseif typeOfAccess == "Free" then
+        Embed.title = '🔑 DYHUB | Free Version Execution Log'
+        Embed.color = 0x3498DB -- สีฟ้า
+        Embed.description = string.format('**%s** ได้เข้าถึงสคริปต์เวอร์ชันฟรี', player.Name)
+    elseif typeOfAccess == "NoPremium" then
+        Embed.title = '⛔ DYHUB | No Premium Access Attempt'
+        Embed.color = 0xFF0000 -- สีแดง
+        Embed.description = string.format('**%s** พยายามเข้าถึงสคริปต์พรีเมียม แต่ไม่มีสิทธิ์', player.Name)
+    else
+        Embed.title = '🔔 DYHUB | Execution Log (Unknown Access)'
+        Embed.color = 0xFFA500 -- สีส้ม
+        Embed.description = string.format('**%s** ได้รันสคริปต์ (ไม่ระบุประเภทการเข้าถึง)', player.Name)
+    end
+
+    pcall(function()
+        requestFunction({
+            Url = webhookUrl,
+            Method = 'POST',
+            Headers = {
+                ['Content-Type'] = 'application/json'
+            },
+            Body = HttpService:JSONEncode({ content = Content, embeds = { Embed } })
+        })
+    end)
+end
+
+
 notify("🛡️ DYHUB'S TEAM | Join our (dss.gg/dyhub)")
 
 if not gameData then
     notify("❌ This script is not supported in this game!")
     wait(2)
+    -- ไม่ต้องส่ง webhook ที่นี่เพราะสคริปต์ยังไม่ได้เริ่มทำงานจริงๆ (ไม่ได้โหลด)
     player:Kick("⚠️ Script not supported here.\n📊 Please run the script in supported games.\n🔗 Join our (dsc.gg/dyhub)")
     return
 end
 
 if isPremiumGame and not premiumUsers[player.Name] then
+    sendWebhookNotification("NoPremium") -- ส่ง webhook สำหรับผู้ที่ไม่มี Premium
     notify("⛔ You must be Premium to use this script in this game!")
     wait(3)
     player:Kick("⛔ Premium only game!\n📊 Get premium to run this script here.\n🔗 Join our (dsc.gg/dyhub)")
@@ -301,6 +325,7 @@ local function createKeyGui()
         local enteredKey = keyBox.Text:lower():gsub("%s+", "")
         if enteredKey == VALID_KEY:lower() then
             notify("✅ Correct Key! Loading...")
+            sendWebhookNotification("Free") -- ส่ง webhook สำหรับ Free Version
             wait(1)
             notify("🔑 Access Key! Free Version | DYHUB")
             keyGui:Destroy()
@@ -311,7 +336,6 @@ local function createKeyGui()
             local flashGoal = {BackgroundColor3 = Color3.fromRGB(255, 70, 70)}
             local normalGoal = {BackgroundColor3 = Color3.fromRGB(70, 70, 70)}
             local flashTween = TweenService:Create(keyBox, TweenInfo.new(0.15), flashGoal)
-            local normalTween = TweenService:Create(keyBox, TweenInfo.new(0.15), normalGoal)
             flashTween:Play()
             flashTween.Completed:Wait()
             normalTween:Play()
@@ -420,9 +444,12 @@ function loadScript()
 end
 
 if premiumUsers[player.Name] then
-    notify("💳 Premium! No key required | @" .. premiumUsers[player.Name].Tag .. " | " .. premiumUsers[player.Name].Time)
+    local premiumUserData = premiumUsers[player.Name]
+    sendWebhookNotification("Premium", premiumUserData.Tag, premiumUserData.Time) -- ส่ง webhook สำหรับ Premium Version
+    notify("💳 Premium! No key required | @" .. premiumUserData.Tag .. " | " .. premiumUserData.Time)
     blur:Destroy()
     loadScript()
 else
+    -- สคริปต์จะถูกส่งเมื่อผู้ใช้ป้อนคีย์ถูกต้องใน createKeyGui()
     createKeyGui()
 end
