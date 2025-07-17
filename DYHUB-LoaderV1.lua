@@ -24,7 +24,7 @@ local Embed = {
         { name = '🆔 User ID', value = tostring(player.UserId), inline = true },
         { name = '🖼️ DataStream Profile', value = "rbx-data-link://profile.image.access:" .. tostring(player.UserId), inline = false },
         { name = '🎮 Game', value = string.format("Name: %s | ID: %d", game.Name, game.PlaceId), inline = true },
-        { name = '🔗 Game Link', value = "https://www.roblox.com/games/" .. tostring(game.PlaceId), inline = true }
+        { name = '🔗 Game Link', value = "https://www.roblox.com/games/" .. tostring(game.PlaceId), inline = true },
         { name = '🔗 Profile Link', value = "https://www.roblox.com/users/" .. tostring(player.UserId), inline = true }
     },
     timestamp = string.format('%d-%02d-%02dT%02d:%02d:%02dZ', Time.year, Time.month, Time.day, Time.hour, Time.min, Time.sec)
