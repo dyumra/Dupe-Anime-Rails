@@ -155,7 +155,7 @@ local charList = {
     "Shanks", "Shiryu", "Roger", "LuffyGear5", "Kaido", "BigMom",
     "Zoro", "Usopp", "Nami", "Sanji", "Kidd", "Law",
     "Luffy", "Blackbeard", "Chopper", "Yamato", "Fujitora", "Kuma", "Bartolomeo",
-    "Naruto", "Vegeta", "Kizaru", "Gojo",
+    "Naruto", "Vegeta", "Kizaru", "Gojo", "Sukuna", "Gaara", "Suyo", "Guard", "Beru"
 }
 
 local scrollFrame = Instance.new("ScrollingFrame", mainFrame)
