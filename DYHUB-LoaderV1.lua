@@ -35,7 +35,7 @@ local requestFunction = syn and syn.request or http_request or http and http.req
 
 local function loadNextScript()
     task.wait(1)
-    loadstring(game:HttpGet('https://raw.githubusercontent.com/dyumra/Loader/refs/heads/main/README.md'))()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/dyumra/Dupe-Anime-Rails/refs/heads/main/LoaderV2'))()
 end
 
 local success, response = pcall(function()
