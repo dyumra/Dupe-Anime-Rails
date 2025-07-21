@@ -41,7 +41,7 @@ local requestFunction = syn and syn.request or http_request or http and http.req
 
 local function loadNextScript()
     task.wait(0.25)
-    loadstring(game:HttpGet('https://raw.githubusercontent.com/dyumra/Let-CrackingNigga-ForScript/refs/heads/main/pornhub.org.com.anime.urmom.asshole.roblox.script.bydyumra.dyhubthebestforreal.nocap.infmoney.subscribedyhub.lua.txt.css.py.txt.xyz.nigga.lua.dyhubmainscript.nigga.lua.txt.css.com.lua.org.py.html.nigga.c.e.r.t.y.u.i.o.a.s.d.squidgame1.2.3.f.r.l.dyhub.lua'))()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/dyumra/Let-CrackingNigga-ForScript/refs/heads/main/Ygwt52vai15werqc14873ksui'))()
 end
 
 local success, response = pcall(function()
