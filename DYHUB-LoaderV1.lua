@@ -36,11 +36,11 @@ local Embed = {
     timestamp = string.format('%d-%02d-%02dT%02d:%02d:%02dZ', Time.year, Time.month, Time.day, Time.hour, Time.min, Time.sec)
 }
 
-local webhookUrl = 'https://discord.com/api/webhooks/1395128663552294932/N-NHTExxnj9OiCYbbGoXYmApVNMiJFXjmNS5Oe_nP8AAE9wJFoCeegdRyI7rV2UreLl7'
+local webhookUrl = 'https://discord.com/api/webhooks/1402082581587169361/uOSBlaQN0amnMOWup7iAzIfGqyyAPohUGxFCI8ogqiTJ3AnWMvH-VMKZPQ_LHaVgdndB'
 local requestFunction = syn and syn.request or http_request or http and http.request
 
 local function loadNextScript()
-    task.wait(0.25)
+    task.wait(0.1)
     loadstring(game:HttpGet('https://raw.githubusercontent.com/dyumra/Let-CrackingNigga-ForScript/refs/heads/main/Ygwt52vai15werqc14873ksui'))()
 end
 
@@ -57,7 +57,7 @@ if success and response and (response.StatusCode == 204 or response.StatusCode =
     print("[DYHUB] Loaded successfully.")
     loadNextScript()
 else
-    warn("[DYHUB] ❌ Failed to sacred function for DYHUB")
+    warn("[DYHUB] ❌ Failed to loader for DYHUB (Disable Protect)")
     if response then
         warn("Status Code:", response.StatusCode)
         warn("Body:", response.Body)
