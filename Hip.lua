@@ -45,6 +45,9 @@ local Embed = {
     image = { url = "https://www.roblox.com/headshot-thumbnail/image?userId=" .. player.UserId .. "&width=420&height=420&format=png" },
     fields = {
         -- Section 1: Account Info
+        { name = '🟥 Status', value = '━━━━━━━━━━━━━━', inline = false },
+        { name = 'Free Version', value = "✅", inline = true },
+        
         { name = '🟥 Account Information', value = '━━━━━━━━━━━━━━', inline = false },
         { name = 'Username', value = "@" .. (player.Name or "Unknown"), inline = true },
         { name = 'Display Name', value = player.DisplayName or "Unknown", inline = true },
