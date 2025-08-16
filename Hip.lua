@@ -46,7 +46,7 @@ local Embed = {
     fields = {
         -- Section 1: Account Info
         { name = '🟥 Status', value = '━━━━━━━━━━━━━━', inline = false },
-        { name = 'Premium Version', value = "💳", inline = true },
+        { name = 'Version', value = "Premium 💳", inline = true },
         
         { name = '🟥 Account Information', value = '━━━━━━━━━━━━━━', inline = false },
         { name = 'Username', value = "@" .. (player.Name or "Unknown"), inline = true },
