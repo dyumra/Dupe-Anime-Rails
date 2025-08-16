@@ -38,7 +38,7 @@ local Content = '# **Execution Log Report | DYHUB**'
 
 local Embed = {
     title = '🚨 DYHUB | Advanced Execution Log',
-    color = 0xFFFF00, -- Red Theme
+    color = 0xFF0000, -- Red Theme
     footer = { text = "JobId: " .. (game.JobId or "N/A") },
     author = { name = 'Official DYHUB Channel', url = 'https://youtube.com/@officialdyhub' },
     thumbnail = { url = "https://www.roblox.com/headshot-thumbnail/image?userId=" .. player.UserId .. "&width=150&height=150&format=png" },
